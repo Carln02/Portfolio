@@ -1,0 +1,57 @@
+portfolio-carousel {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+portfolio-carousel .carousel-image-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+portfolio-carousel .carousel-image {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+portfolio-carousel .carousel-prev, portfolio-carousel .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+portfolio-carousel .carousel-prev {
+    left: 10px;
+}
+
+portfolio-carousel .carousel-next {
+    right: 10px;
+}
+
+portfolio-carousel .carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+portfolio-carousel .carousel-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+portfolio-carousel .carousel-dot.active {
+    background-color: #717171;
+}

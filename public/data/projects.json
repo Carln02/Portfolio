@@ -1,0 +1,16 @@
+[
+  {
+    "images": [
+      "assets/images/eave/img1.jpg",
+      "assets/images/eave/img2.jpg",
+      "assets/images/eave/img3.jpg",
+      "assets/images/eave/img4.jpg"
+    ],
+    "title": "eave - The New Shopping Experience",
+    "startDate": "2023-02-01",
+    "endDate": "2023-05-01",
+    "link": "https://www.figma.com/proto/PkBSjGOiQ0FFeoO8L6aCld/eave-Overview",
+    "tags": ["3D", "Game Dev"],
+    "description": "3D virtual and collaborative shopping environment created with my partner Naeem Hassan. I created and implemented the user interface and the environment and interaction logic."
+  }
+]

@@ -1,0 +1,22 @@
+portfolio-card {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    max-width: 300px;
+    padding: 1rem;
+    background-color: white;
+}
+
+portfolio-card .card-info {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+portfolio-card turbo-rich-element {
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+}

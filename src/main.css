@@ -1,0 +1,22 @@
+body {
+    touch-action: pan-x pan-y;
+    user-select: none;
+    overflow: hidden;
+
+    background-color: #f1f8f8;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.icon {
+    max-width: 2.5em;
+    max-height: 2.5em;
+    aspect-ratio: 1;
+}
