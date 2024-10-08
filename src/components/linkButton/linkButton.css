@@ -1,0 +1,14 @@
+portfolio-link-button {
+    display: flex;
+    flex-direction: row;
+
+    border-radius: 100px;
+    align-items: center;
+    padding: 4px 16px;
+    background-color: #abc7af;
+}
+
+portfolio-link-button > svg.link-path {
+    position: absolute;
+    pointer-events: none;
+}

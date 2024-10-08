@@ -1,5 +1,5 @@
 import {
-    a,
+    a, auto, Coordinate,
     define,
     flexRow,
     h3,
@@ -13,12 +13,14 @@ import {
 import {PortfolioCardData} from "./card.types";
 import {PortfolioCarousel} from "../carousel/carousel";
 import "./card.css";
+import {NavigationManager} from "../../managers/navigationManager/navigationManager";
 
 @define()
 export class PortfolioCard extends TurboElement {
     private static months = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "June", "July", "Aug.", "Sept.", "Oct.",
         "Nov.", "Dec."];
 
+    protected readonly navigationManager: NavigationManager;
     private data: PortfolioCardData;
 
     private carousel: PortfolioCarousel | undefined;
@@ -32,11 +34,22 @@ export class PortfolioCard extends TurboElement {
 
     private descriptionElement: HTMLElement | undefined;
 
-    public constructor(data: PortfolioCardData, properties?: TurboProperties) {
+    public constructor(navigationManager: NavigationManager, data: PortfolioCardData, properties?: TurboProperties) {
         super(properties);
+        this.addClass("portfolio-card");
+
+        this.navigationManager = navigationManager;
         this.data = data;
+
         this.setupUIElements();
         this.setupUILayout();
+
+        this.origin = data.origin;
+    }
+
+    @auto()
+    public set origin(value: Coordinate) {
+        this.setStyle("transform", `translate(${value.x}px, ${value.y}px)`);
     }
 
     protected setupUIElements() {
@@ -66,7 +79,7 @@ export class PortfolioCard extends TurboElement {
         });
     }
 
-    protected setupDateElement() {
+    private setupDateElement() {
         if (!this.data.startDate) return;
         let finalString = "";
 

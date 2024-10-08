@@ -1,4 +1,4 @@
-portfolio-card {
+.portfolio-card {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -9,13 +9,13 @@ portfolio-card {
     background-color: white;
 }
 
-portfolio-card .card-info {
+.portfolio-card .card-info {
     display: flex;
     flex-direction: row;
     gap: 1rem;
 }
 
-portfolio-card turbo-rich-element {
+.portfolio-card turbo-rich-element {
     display: flex;
     flex-direction: row;
     gap: 0.4rem;

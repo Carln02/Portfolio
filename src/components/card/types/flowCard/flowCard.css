@@ -1,0 +1,5 @@
+.portfolio-flow-card .card-buttons {
+    display: flex;
+    flex-direction: row;
+}
+

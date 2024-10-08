@@ -1,4 +1,8 @@
+import {Coordinate} from "turbodombuilder";
+
 export type PortfolioCardData = {
+    origin?: Coordinate;
+
     images?: string[];
 
     title?: string;

@@ -63,7 +63,7 @@ export class NavigationManager {
         return this._translation;
     }
 
-    private set translation(value: Point) {
+    public set translation(value: Point) {
         this._translation = value;
         //Transform the canvas accordingly
         this.canvas.transform(this.translation, this.scale);
@@ -152,5 +152,13 @@ export class NavigationManager {
      */
     public computePositionRelativeToCanvas(screenPosition: Point) {
         return screenPosition?.sub(this.translation as Coordinate).div(this.scale);
+    }
+
+    public navigateTo(element: Element, offset: Coordinate = {x: 0.5, y: 0.5}) {
+        const rect = element.getBoundingClientRect();
+        const deltaPosition = new Point(window.innerWidth * offset.x, window.innerHeight * offset.y)
+            .sub(rect.left + rect.width * offset.x, rect.top + rect.height * offset.y);
+
+        this.translate(deltaPosition);
     }
 }
