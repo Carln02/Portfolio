@@ -11,7 +11,7 @@ TurboIcon.config.defaultDirectory = "assets/icons";
 TurboIcon.config.defaultClasses = "icon";
 
 const navigationManager = new NavigationManager();
-const toolManager: ToolManager = new ToolManager();
+const toolManager: ToolManager = new ToolManager(navigationManager);
 
 const canvas: PortfolioCanvas = new PortfolioCanvas(navigationManager, toolManager);
 navigationManager.canvas = canvas;

@@ -2,6 +2,8 @@ import {Tool} from "../../tools/tool/tool";
 import {ClickMode, Delegate, TurboDragEvent, TurboEvent, TurboEventName, TurboKeyEvent} from "turbodombuilder";
 import {SetToolOptions, ToolType} from "./toolManager.types";
 import {MoveTool} from "../../tools/move/move";
+import {NavigationManager} from "../navigationManager/navigationManager";
+import {NavigatorTool} from "../../tools/navigator/navigator";
 
 /**
  * @description Manages (ideally) all the tools in the application
@@ -15,16 +17,20 @@ export class ToolManager {
     //Tools currently held by the user (one - or none - per each click button/mode)
     private readonly currentTools: Map<ClickMode, Tool>;
 
+    private readonly navigationManager: NavigationManager;
+
     /**
      * @description Delegate fired when a tool is changed on a certain click button/mode
      */
     public readonly onToolChange: Delegate<(oldTool: Tool, newTool: Tool, type: ClickMode) => void>;
 
-    public constructor() {
+    public constructor(navigationManager: NavigationManager) {
         //Init all maps
         this.tools = new Map<ToolType, Tool>();
         this.mappedKeysToTool = new Map<string, ToolType>();
         this.currentTools = new Map<ClickMode, Tool>();
+
+        this.navigationManager = navigationManager;
 
         //Create delegate
         this.onToolChange = new Delegate<(oldTool: Tool, newTool: Tool, type: ClickMode) => void>();
@@ -37,6 +43,7 @@ export class ToolManager {
     private initTools() {
         //Create all tools
         this.addTool(new MoveTool(), "Shift");
+        this.addTool(new NavigatorTool(this.navigationManager), "Control");
 
         //Init default tools at hand
         this.setTool(this.getToolByKey("Shift"), ClickMode.left);
