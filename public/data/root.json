@@ -1,0 +1,30 @@
+{
+  "profilePicture": "assets/images/profile-picture.jpg",
+  "description": "My name is Carl and I am a developer, designer, and future researcher interested in the world of creativity support tools and exploring the designer-developer workflow.",
+  "links": [
+    {
+      "name": "Experience",
+      "side": "left"
+    },
+    {
+      "name": "Education",
+      "side": "right"
+    },
+    {
+      "name": "Awards",
+      "side": "left"
+    },
+    {
+      "name": "Skills",
+      "side": "left"
+    },
+    {
+      "name": "Projects",
+      "side": "right"
+    }
+  ],
+  "origin": {
+    "x": -161,
+    "y": -225
+  }
+}

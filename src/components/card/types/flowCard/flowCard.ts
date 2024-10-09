@@ -40,8 +40,8 @@ export class PortfolioFlowCard extends PortfolioCard {
     protected setupUIElements() {
         super.setupUIElements();
 
-        this.leftLink = new PortfolioLinkButton(this.navigationManager, {leftIcon: "chevron-left"});
-        this.rightLink = new PortfolioLinkButton(this.navigationManager, {rightIcon: "chevron-right"});
+        this.leftLink = new PortfolioLinkButton(this, this.navigationManager, {leftIcon: "chevron-left"});
+        this.rightLink = new PortfolioLinkButton(this, this.navigationManager, {rightIcon: "chevron-right"});
     }
 
     protected setupUILayout() {

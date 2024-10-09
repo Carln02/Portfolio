@@ -35,6 +35,8 @@ export class PortfolioCarousel extends TurboElement {
             parent: this.imageContainer
         }));
 
+        if (this.images.length < 2) return;
+
         const prevButton = button({
             text: "Previous",
             classes: "carousel-prev",

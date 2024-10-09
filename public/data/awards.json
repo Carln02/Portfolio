@@ -1,0 +1,33 @@
+[
+  {
+    "title": "IDEX Scholarship",
+    "startDate": "2023-09-01",
+    "endDate": "2023-09-01",
+    "awardedBy": "Université Paris-Saclay",
+    "origin": {
+      "x": -740,
+      "y": 53
+    }
+  },
+  {
+    "title": "Murex Award",
+    "startDate": "2023-06-01",
+    "endDate": "2023-06-01",
+    "awardedBy": "Murex",
+    "description": "Most Collaborative Development Project Award for my Capstone Project \"eave\".",
+    "origin": {
+      "x": -1400,
+      "y": 88
+    }
+  },
+  {
+    "title": "Honors Scholarship",
+    "startDate": "2020-09-01",
+    "endDate": "2020-09-01",
+    "awardedBy": "Lebanese American University",
+    "origin": {
+      "x": -1900,
+      "y": 300
+    }
+  }
+]

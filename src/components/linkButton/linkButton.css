@@ -8,7 +8,8 @@ portfolio-link-button {
     background-color: #abc7af;
 }
 
-portfolio-link-button > svg.link-path {
+svg.link-path {
     position: absolute;
     pointer-events: none;
+    transform: translate3d(-50%, -50%, 0);
 }

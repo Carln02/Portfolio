@@ -1,0 +1,33 @@
+[
+  {
+    "images": [
+      "assets/images/experience/exsitu.png"
+    ],
+    "title": "Ex-Situ Research Lab",
+    "startDate": "2024-05-01",
+    "endDate": "2024-08-01",
+    "location": "Orsay, France",
+    "link": "https://ex-situ.lri.fr/",
+    "linkText": "Website",
+    "tags": ["Web Dev", "Prototyping", "Ideation"],
+    "description": "Internship where I developed a new interactive and instrumental-driven version of VideoClipper, a tool for video prototyping.",
+    "origin": {
+      "x": -967,
+      "y": -537
+    }
+  },
+  {
+    "title": "Cre8mania Digital Agency",
+    "startDate": "2022-02-01",
+    "endDate": "2022-05-01",
+    "location": "Beirut, Lebanon",
+    "link": "https://cre8mania.com/",
+    "linkText": "Website",
+    "tags": ["Web Dev", "R&D", "3D", "AR"],
+    "description": "Research internship where I developed image tracking and markerless web based AR. I also participated in the modeling for two projection mapping animations for Jeddah Festival.",
+    "origin": {
+      "x": -1734,
+      "y": -370
+    }
+  }
+]

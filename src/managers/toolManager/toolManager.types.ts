@@ -17,6 +17,7 @@ export enum ToolType {
     delete = "Delete",
     navigator = "Navigator",
     selection = "Selection",
+    move = "Move",
     shoot = "Shoot",
     text = "Text",
 }

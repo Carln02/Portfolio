@@ -1,6 +1,6 @@
 import {
     a, auto, Coordinate,
-    define,
+    define, Delegate,
     flexRow,
     h3,
     h4,
@@ -21,18 +21,22 @@ export class PortfolioCard extends TurboElement {
         "Nov.", "Dec."];
 
     protected readonly navigationManager: NavigationManager;
-    private data: PortfolioCardData;
+    protected readonly data: PortfolioCardData;
 
     private carousel: PortfolioCarousel | undefined;
     private titleElement: HTMLElement | undefined;
 
     private locationElement: TurboRichElement | undefined;
+    private awardedByElement: TurboRichElement | undefined;
+
     private dateElement: TurboRichElement | undefined;
     private linkElement: TurboRichElement | undefined;
 
     private tagsElements: HTMLElement[];
 
     private descriptionElement: HTMLElement | undefined;
+
+    public readonly onMove: Delegate<(newPosition: Coordinate) => void>;
 
     public constructor(navigationManager: NavigationManager, data: PortfolioCardData, properties?: TurboProperties) {
         super(properties);
@@ -44,12 +48,18 @@ export class PortfolioCard extends TurboElement {
         this.setupUIElements();
         this.setupUILayout();
 
-        this.origin = data.origin;
+        this.onMove = new Delegate();
+        this.origin = data.origin || {x: 0, y: 0};
     }
 
     @auto()
     public set origin(value: Coordinate) {
         this.setStyle("transform", `translate(${value.x}px, ${value.y}px)`);
+        this.onMove.fire(value);
+    }
+
+    public translateBy(value: Coordinate) {
+        this.origin = {x: this.origin.x + value.x, y: this.origin.y + value.y};
     }
 
     protected setupUIElements() {
@@ -61,6 +71,11 @@ export class PortfolioCard extends TurboElement {
             leftIcon: "location", classes: "card-location"
         });
         if (this.data.startDate) this.setupDateElement();
+        if (this.data.awardedBy) this.awardedByElement = richElement({
+            element: this.data.awardedBy,
+            leftIcon: "award", classes: "card-awarded-by"
+        });
+
         if (this.data.link) this.linkElement = richElement({
             element: a({
                 text: this.data.linkText || "Link",
@@ -111,6 +126,7 @@ export class PortfolioCard extends TurboElement {
             const infoDiv = flexRow({classes: "card-info", parent: this});
             if (this.locationElement) infoDiv.addChild(this.locationElement);
             if (this.dateElement) infoDiv.addChild(this.dateElement);
+            if (this.awardedByElement) infoDiv.addChild(this.awardedByElement);
             if (this.linkElement) infoDiv.addChild(this.linkElement);
         }
 

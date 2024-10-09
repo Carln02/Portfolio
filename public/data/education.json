@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Université Paris-Saclay",
+    "startDate": "2023-09-01",
+    "endDate": "2025-09-01",
+    "location": "Orsay, France",
+    "description": "Master’s degree in Human-Computer Interaction",
+    "origin": {
+      "x": 668,
+      "y": -607
+    }
+  },
+  {
+    "title": "Lebanese American University",
+    "startDate": "2020-09-01",
+    "endDate": "2023-06-01",
+    "location": "Beirut, Lebanon",
+    "description": "BS in Computer Science with a minor in Animation with a CGPA of 3.95/4.",
+    "origin": {
+      "x": 1222,
+      "y": -335
+    }
+  },
+  {
+    "title": "Collège Notre-Dame de Jamhour",
+    "startDate": "2007-09-01",
+    "endDate": "2020-06-01",
+    "location": "Beirut, Lebanon",
+    "description": "Completed Grade 12 with an average of 17.3 over 20, and ranked third of my class.",
+    "origin": {
+      "x": 1823,
+      "y": -485
+    }
+  }
+]

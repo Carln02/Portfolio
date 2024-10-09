@@ -161,4 +161,14 @@ export class NavigationManager {
 
         this.translate(deltaPosition);
     }
+
+    public getPositionOf(element: Element, offset: Coordinate = {x: 0, y: 0}): Point {
+        const canvasRect = this.canvas.content.getBoundingClientRect();
+        const rect = element.getBoundingClientRect();
+
+        const deltaPosition =  new Point(rect.x + rect.width * offset.x, rect.y + rect.height * offset.y)
+            .sub(canvasRect.x * 2, canvasRect.y * 2)
+
+        return this.translation.add(deltaPosition).div(this.scale);
+    }
 }

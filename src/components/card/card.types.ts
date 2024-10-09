@@ -7,6 +7,7 @@ export type PortfolioCardData = {
 
     title?: string;
     location?: string;
+    awardedBy?: string;
 
     startDate?: Date,
     endDate?: Date,
