@@ -6,8 +6,8 @@
     "location": "Orsay, France",
     "description": "Master’s degree in Human-Computer Interaction",
     "origin": {
-      "x": 668,
-      "y": -607
+      "x": 700,
+      "y": -600
     }
   },
   {
@@ -17,7 +17,7 @@
     "location": "Beirut, Lebanon",
     "description": "BS in Computer Science with a minor in Animation with a CGPA of 3.95/4.",
     "origin": {
-      "x": 1222,
+      "x": 1250,
       "y": -335
     }
   },
@@ -29,7 +29,7 @@
     "description": "Completed Grade 12 with an average of 17.3 over 20, and ranked third of my class.",
     "origin": {
       "x": 1823,
-      "y": -485
+      "y": -540
     }
   }
 ]

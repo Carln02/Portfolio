@@ -1,3 +1,7 @@
+.portfolio-root-card {
+    width: 400px;
+}
+
 .portfolio-root-card .card-title-div {
     display: flex;
     flex-direction: row;

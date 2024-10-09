@@ -13,8 +13,8 @@
     "tags": ["3D", "Game Dev"],
     "description": "3D virtual and collaborative shopping environment created with my partner Naeem Hassan. I created and implemented the user interface and the environment and interaction logic.",
     "origin": {
-      "x": 433,
-      "y": 155
+      "x": 760,
+      "y": 500
     }
   },
   {
@@ -31,8 +31,8 @@
     "tags": ["3D", "Game Dev"],
     "description": "3D virtual and collaborative shopping environment created with my partner Naeem Hassan. I created and implemented the user interface and the environment and interaction logic.",
     "origin": {
-      "x": 1263,
-      "y": 328
+      "x": 2000,
+      "y": 600
     }
   }
 ]
