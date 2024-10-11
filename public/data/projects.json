@@ -18,18 +18,11 @@
     }
   },
   {
-    "images": [
-      "assets/images/eave/img1.jpg",
-      "assets/images/eave/img2.jpg",
-      "assets/images/eave/img3.jpg",
-      "assets/images/eave/img4.jpg"
-    ],
-    "title": "eave - The New Shopping Experience",
-    "startDate": "2023-02-01",
-    "endDate": "2023-05-01",
-    "link": "https://www.figma.com/proto/PkBSjGOiQ0FFeoO8L6aCld/eave-Overview",
-    "tags": ["3D", "Game Dev"],
-    "description": "3D virtual and collaborative shopping environment created with my partner Naeem Hassan. I created and implemented the user interface and the environment and interaction logic.",
+    "title": "TurboDOMBuilder",
+    "startDate": "2024-02-01",
+    "link": "https://github.com/Carln02/TurboDOMBuilder",
+    "tags": ["Web Dev"],
+    "description": "A lightweight JavaScript library to easily create DOM elements, and that provide basic interaction-centric components suited for customization, and a utility to easily manage CSS styling and transitions.\nThis portfolio website was actually created using TurboDOMBuilder! YOu can check out the source code <a target=\"_blank\" href=\"https://github.com/Carln02/Portfolio\">here</a>.",
     "origin": {
       "x": 2000,
       "y": 600

@@ -1,6 +1,6 @@
 import {
     a, auto, Coordinate,
-    define, Delegate,
+    define, Delegate, div,
     flexRow,
     h3,
     h4,
@@ -17,8 +17,10 @@ import {NavigationManager} from "../../managers/navigationManager/navigationMana
 
 @define()
 export class PortfolioCard extends TurboElement {
-    private static months = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "June", "July", "Aug.", "Sept.", "Oct.",
-        "Nov.", "Dec."];
+    private static months = ["Jan.", "Feb.", "Mar.", "Apr.", "May",
+        "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."] as const;
+    private static tagsColors = ["#12334e", "#4e124d",
+        "#1a124e", "#124e4c", "#2f124e"] as const;
 
     protected readonly navigationManager: NavigationManager;
     protected readonly data: PortfolioCardData;
@@ -84,13 +86,14 @@ export class PortfolioCard extends TurboElement {
         });
 
         this.tagsElements = [];
-        if (this.data.tags) this.data.tags.forEach(tag => this.tagsElements.push(h4({
-            text: tag, classes: "card-tag"
-        })));
+        if (this.data.tags) this.data.tags.forEach(tag => this.tagsElements.push(
+            h4({text: tag, classes: "card-tag"})
+                .setStyle("backgroundColor", PortfolioCard.tagsColors[Math.floor(Math.random() * 5)])
+        ));
 
-        if (this.data.description) this.descriptionElement = p({
-            text: this.data.description,
-            classes: "card-description"
+        if (this.data.description) this.descriptionElement = div({
+            classes: "card-description",
+            children: this.data.description.split(/<br\s*\/?>|\n/).map(entry => p({innerHTML: entry}))
         });
     }
 
@@ -123,7 +126,7 @@ export class PortfolioCard extends TurboElement {
         this.addChild(this.titleElement);
 
         if (this.locationElement || this.dateElement || this.linkElement) {
-            const infoDiv = flexRow({classes: "card-info", parent: this});
+            const infoDiv = div({classes: "card-info", parent: this});
             if (this.locationElement) infoDiv.addChild(this.locationElement);
             if (this.dateElement) infoDiv.addChild(this.dateElement);
             if (this.awardedByElement) infoDiv.addChild(this.awardedByElement);
@@ -131,7 +134,7 @@ export class PortfolioCard extends TurboElement {
         }
 
         if (this.tagsElements.length > 0) {
-            const tagsDiv = flexRow({classes: "card-tags", parent: this});
+            const tagsDiv = div({classes: "card-tags", parent: this});
             this.tagsElements.forEach(tag => tagsDiv.addChild(tag));
         }
 

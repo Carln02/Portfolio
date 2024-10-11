@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Languages",
+    "tags": ["French", "Arabic", "English"],
+    "origin": {
+      "x": -860,
+      "y": 825
+    }
+  },
+  {
+    "title": "Programming Languages",
+    "tags": ["JavaScript", "C#", "Java", "Dart", "C/C++", "Python", "HTML/CSS", "SQL", "PHP", "Bash"],
+    "origin": {
+      "x": -1700,
+      "y": 670
+    }
+  },
+  {
+    "title": "Design Tools",
+    "tags": ["Figma", "Adobe Creative Suite", "Maya", "Revit", "3DS Max", "Blender", "Toon Boom Harmony"],
+    "origin": {
+      "x": -2400,
+      "y": 1000
+    }
+  },
+  {
+    "title": "Programming Tools",
+    "tags": ["Unity", "Flutter", "React", "OpenGL", "THREE.js", "Oracle", "MongoDB"],
+    "origin": {
+      "x": -3450,
+      "y": 860
+    }
+  },
+  {
+    "title": "Soft Skills",
+    "tags": ["Creativity", "Problem Solving", "Attention to Details", "Organization", "Time Management", "Teamwork", "Self-learning"],
+    "origin": {
+      "x": -4300,
+      "y": 1400
+    }
+  },
+  {
+    "title": "Hard Skills",
+    "tags": ["UI Design", "Prototyping", "Wireframing", "Ideation", "Web & Mobile Dev", "Game Dev", "Software Design & Documentation", "3D Modeling & Animation", "Cell Animation", "Motion Design"],
+    "origin": {
+      "x": -5300,
+      "y": 1950
+    }
+  }
+]

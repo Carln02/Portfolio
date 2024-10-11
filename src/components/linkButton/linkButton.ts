@@ -1,4 +1,5 @@
 import {
+    auto,
     DefaultEventName,
     define, element, Point, Shown, StatefulReifect,
     TurboButton,
@@ -8,6 +9,8 @@ import {
 import "./linkButton.css";
 import {PortfolioCard} from "../card/card";
 import {NavigationManager} from "../../managers/navigationManager/navigationManager";
+import {PortfolioLinkData} from "./linkButton.types";
+import {SideH} from "../card/types/flowCard/flowCard.types";
 
 @define()
 export class PortfolioLinkButton<ElementTag extends ValidTag = "p"> extends TurboButton<ElementTag> {
@@ -32,10 +35,14 @@ export class PortfolioLinkButton<ElementTag extends ValidTag = "p"> extends Turb
         }
     });
 
-    public constructor(parentCard: PortfolioCard, navigationManager: NavigationManager,
-                       properties: TurboRichElementProperties<ElementTag>) {
-        super(properties);
+    public constructor(properties: PortfolioLinkData, parentCard: PortfolioCard, navigationManager: NavigationManager) {
+        super({element: properties.name, leftIcon: "chevron-left", rightIcon: "chevron-right"});
         this.showTransition = PortfolioLinkButton.showTransition;
+
+        this.rightIcon.show(properties.side == SideH.right);
+        this.leftIcon.show(properties.side == SideH.left);
+
+        this.rank = properties.rank;
 
         this.parentCard = parentCard;
         this.navigationManager = navigationManager;
@@ -53,6 +60,13 @@ export class PortfolioLinkButton<ElementTag extends ValidTag = "p"> extends Turb
             if (!this.attachedCard) return;
             this.navigationManager.navigateTo(this.attachedCard);
         });
+    }
+
+    @auto()
+    public set rank(value: number) {
+        this.toggleClass("primary-button", value == 1);
+        this.toggleClass("secondary-button", value == 2);
+        this.toggleClass("tertiary-button", value == 3 || !value);
     }
 
     public attachTo(card: PortfolioCard, showConnection: boolean = true) {

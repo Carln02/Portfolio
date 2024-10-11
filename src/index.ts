@@ -3,6 +3,7 @@ import {PortfolioCanvas} from "./components/canvas/canvas";
 import {ToolManager} from "./managers/toolManager/toolManager";
 import {NavigationManager} from "./managers/navigationManager/navigationManager";
 import {DataManager} from "./managers/dataManager/dataManager";
+import "./vars.css";
 import "./main.css";
 
 turbofy();

@@ -19,15 +19,23 @@ export class PortfolioCanvas extends TurboElement {
     //Main toolbar
     private readonly toolbar: PortfolioToolbar;
 
+    private readonly background: HTMLElement;
+
     public constructor(navigationManager: NavigationManager, toolManager: ToolManager) {
         super({parent: document.body});
         this.navigationManager = navigationManager;
+
+        this.background = div({parent: this, id: "background"});
 
         this.content = div({parent: this, id: "canvas-content"});
 
         //Init toolbar
         this.toolbar = new PortfolioToolbar(toolManager, {parent: this, classes: "bottom-toolbar"});
         this.toolbar.populateWithAllTools();
+    }
+
+    public get translation() {
+        return this.navigationManager.translation;
     }
 
     public get scale() {
@@ -41,5 +49,23 @@ export class PortfolioCanvas extends TurboElement {
      */
     public transform(translation: Point, scale: number) {
         this.content.setStyle("transform", css`translate3d(${translation.x}px, ${translation.y}px, 0) scale3d(${scale}, ${scale}, 1)`);
+        this.updateBackgroundPosition();
     }
+
+    private updateBackgroundPosition(parent: HTMLElement = this.background) {
+        const computedPosition = this.translation.object;
+
+        while (computedPosition.x < 0) computedPosition.x += 1920;
+        while (computedPosition.x >= 1920) computedPosition.x -= 1920;
+
+        // computedPosition.x = computedPosition.x;
+
+        while (computedPosition.y < 0) computedPosition.y += 1080;
+        while (computedPosition.y >= 1080) computedPosition.y -= 1080;
+
+        parent.setStyle("backgroundPosition", `${computedPosition.x}px ${computedPosition.y}px`, true);
+        parent.setStyle("backgroundImage", this.scale < 0.5 ? "none" : "url(\"assets/misc/dot-bg-pattern.png\")")
+        parent.setStyle("backgroundSize", `${1920 * this.scale * 0.8}px`, true);
+    }
+
 }

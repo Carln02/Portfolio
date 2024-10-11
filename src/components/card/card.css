@@ -1,23 +1,94 @@
 .portfolio-card {
     position: absolute;
+
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--card-content-gap);
 
-    min-width: 300px;
-    max-width: 400px;
-    padding: 1rem;
-    background-color: white;
+    min-width: var(--card-min-width);
+    max-width: var(--card-max-width);
+
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    background: var(--transparent-gradient-dark);
+    backdrop-filter: blur(var(--card-backdrop-blur));
+
+    border: var(--card-border-width) solid var(--card-border-color);
 }
+
+/* TITLE */
+
+.portfolio-card .card-title {
+    font-size: var(--card-title-font-size);
+}
+
+/* INFO */
 
 .portfolio-card .card-info {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+
+    gap: var(--card-info-gap);
+    margin-top: var(--card-info-top-margin);
 }
 
-.portfolio-card turbo-rich-element {
+.portfolio-card .card-info turbo-rich-element {
     display: flex;
     flex-direction: row;
-    gap: 0.4rem;
+    align-items: center;
+    gap: var(--card-info-entry-gap);
+    font-size: var(--card-info-font-size);
+}
+
+.portfolio-card .card-info turbo-rich-element div {
+    color: var(--card-info-color);
+}
+
+.portfolio-card .card-info turbo-rich-element .icon {
+    width: var(--card-info-icon-size);
+    height: var(--card-info-icon-size);
+}
+.portfolio-card .card-info turbo-rich-element svg {
+    fill: var(--card-info-color);
+}
+
+/* TAGS */
+
+.portfolio-card .card-tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--tags-gap-horizontal);
+    row-gap: var(--tags-gap-vertical);
+    margin-top: var(--tags-top-margin);
+}
+
+.portfolio-card .card-tags .card-tag {
+    padding: 4px 8px;
+    border-radius: 50px;
+}
+
+/* DESCRIPTION */
+
+.portfolio-card .card-description {
+    display: flex;
+    flex-direction: column;
+    gap: var(--description-space-between-paragraphs);
+
+    font-size: var(--description-font-size);
+    line-height: var(--description-line-height);
+    letter-spacing: var(--description-letter-spacing);
+
+    margin-top: var(--description-top-margin);
+}
+
+/* BUTTONS */
+
+.portfolio-card .card-buttons {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: var(--buttons-container-gap);
+    flex-wrap: wrap;
+    margin-top: var(--buttons-container-top-margin);
 }

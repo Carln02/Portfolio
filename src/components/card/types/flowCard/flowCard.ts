@@ -1,5 +1,5 @@
 import {PortfolioCard} from "../../card";
-import {auto, button, Coordinate, define, div, spacer, TurboProperties} from "turbodombuilder";
+import {auto, Coordinate, define, div, spacer, TurboProperties} from "turbodombuilder";
 import {PortfolioFlowCardData, SideH} from "./flowCard.types";
 import "./flowCard.css";
 import {PortfolioLinkButton} from "../../../linkButton/linkButton";
@@ -28,6 +28,9 @@ export class PortfolioFlowCard extends PortfolioCard {
     public set side(value: SideH) {
         this.leftLink.text = value == SideH.left ? "Next" : "Previous";
         this.rightLink.text = value == SideH.right ? "Next" : "Previous";
+
+        this.leftLink.rank = value == SideH.left ? 2 : 3;
+        this.rightLink.rank = value == SideH.right ? 2 : 3;
     }
 
     @auto()
@@ -40,12 +43,12 @@ export class PortfolioFlowCard extends PortfolioCard {
     protected setupUIElements() {
         super.setupUIElements();
 
-        this.leftLink = new PortfolioLinkButton(this, this.navigationManager, {leftIcon: "chevron-left"});
-        this.rightLink = new PortfolioLinkButton(this, this.navigationManager, {rightIcon: "chevron-right"});
+        this.leftLink = new PortfolioLinkButton({side: SideH.left}, this, this.navigationManager);
+        this.rightLink = new PortfolioLinkButton({side: SideH.right}, this, this.navigationManager);
     }
 
     protected setupUILayout() {
         super.setupUILayout();
-        div({parent: this, classes: "card-buttons", children: [this.leftLink, spacer(), this.rightLink]});
+        div({parent: this, classes: "card-buttons", children: [this.leftLink, this.rightLink]});
     }
 }

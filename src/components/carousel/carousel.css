@@ -4,6 +4,8 @@ portfolio-carousel {
     width: 100%;
     aspect-ratio: 16 / 9;
     overflow: hidden;
+    border-radius: var(--card-content-radius);
+    margin-bottom: var(--carousel-bottom-margin);
 }
 
 portfolio-carousel .carousel-image-container {

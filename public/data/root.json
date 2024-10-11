@@ -1,26 +1,31 @@
 {
   "profilePicture": "assets/images/profile-picture.jpg",
-  "description": "My name is Carl and I am a developer, designer, and future researcher interested in the world of creativity support tools and exploring the designer-developer workflow.",
+  "description": "I’m <b>Carl</b> Abou Saada Nujaim and I am a <b>developer</b>, <b>designer</b>, and <b>future researcher</b> interested in the world of creativity support tools.<br>I wish to enhance the <b>designer-developer workflow</b> and make it easier and more accessible for designers and developers to conceive <b>user-centric interactive platforms</b>.",
   "links": [
     {
       "name": "Experience",
-      "side": "left"
+      "side": "left",
+      "rank": 2
     },
     {
       "name": "Education",
-      "side": "right"
+      "side": "right",
+      "rank": 2
     },
     {
       "name": "Awards",
-      "side": "left"
+      "side": "left",
+      "rank": 2
     },
     {
       "name": "Skills",
-      "side": "left"
+      "side": "right",
+      "rank": 2
     },
     {
       "name": "Projects",
-      "side": "right"
+      "side": "right",
+      "rank": 1
     }
   ],
   "origin": {

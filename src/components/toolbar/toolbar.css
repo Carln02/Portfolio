@@ -1,13 +1,15 @@
 portfolio-toolbar {
+    position: fixed;
+
     display: flex;
     gap: 1em;
 
-    position: fixed;
-
     padding: 1.5em;
-    border-radius: 0.3em;
-    border: 0.3em;
-    background-color: white;
+    border-radius: var(--card-content-radius);
+
+    border: var(--card-border-width) solid var(--card-border-color);
+    background: var(--transparent-gradient-dark);
+    backdrop-filter: blur(var(--card-backdrop-blur));
 
     z-index: 2;
 }
@@ -16,8 +18,8 @@ portfolio-toolbar.bottom-toolbar {
     flex-direction: row;
 
     bottom: 2.5em;
-    left: 15vw;
-    right: 15vw;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 portfolio-toolbar.left-toolbar {

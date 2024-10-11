@@ -4,22 +4,29 @@ import {SideH} from "../../components/card/types/flowCard/flowCard.types";
 import {NavigationManager} from "../navigationManager/navigationManager";
 import {PortfolioRootCard} from "../../components/card/types/rootCard/rootCard";
 import {PortfolioLinkButton} from "../../components/linkButton/linkButton";
+import {PortfolioCard} from "../../components/card/card";
 
 export class DataManager {
     public readonly canvas: PortfolioCanvas;
     private readonly navigationManager: NavigationManager;
 
+    private readonly cards: PortfolioCard[];
+
     public constructor(canvas: PortfolioCanvas) {
         this.canvas = canvas;
         this.navigationManager = canvas.navigationManager;
+        this.cards = [];
     }
 
     public async populate(dataFolderPath: string = "data") {
         if (dataFolderPath.length > 0 && !dataFolderPath.endsWith("/") && !dataFolderPath.endsWith("\\")) dataFolderPath += "/";
         const rootCard = await this.generateRootFrom(dataFolderPath + "root.json");
+        this.cards.push(rootCard);
 
         rootCard.links.forEach((link, name) =>
             this.loadDataFromFile(dataFolderPath + name.toLowerCase() + ".json", link.element, link.side));
+
+        this.cards.forEach(card => card.origin = card.origin);
     }
 
     private async generateRootFrom(filePath: string): Promise<PortfolioRootCard> {
@@ -48,6 +55,7 @@ export class DataManager {
                 const newCard = new PortfolioFlowCard(this.navigationManager,
                     {...entry, startDate: startDate, endDate: endDate, side: side},
                     {parent: this.canvas?.content});
+                this.cards.push(newCard);
 
                 if (i == 0) {
                     newCard.previousLink.attachTo(rootLink.parentCard, false);

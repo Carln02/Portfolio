@@ -5,6 +5,17 @@ portfolio-canvas {
     height: 100vh;
 }
 
+portfolio-canvas > #background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-repeat: repeat;
+    z-index: -1;
+}
+
 portfolio-canvas > #canvas-content {
     position: absolute;
     overflow: visible;

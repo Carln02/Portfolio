@@ -1,0 +1,96 @@
+:root {
+    --background: #131617;
+
+    --text-color: #FFFFFF;
+
+    --link-color: #9e48ff;
+    --link-font-weight: 600;
+
+    --icon-size: 20px;
+
+    /* CARD (SELF) */
+
+    --card-min-width: 400px;
+    --card-max-width: 500px;
+
+    --card-padding: 28px;
+    --card-radius: 32px;
+
+    --card-border-width: 1px;
+    --card-border-color: #683685;
+
+    --card-backdrop-blur: 6px;
+
+    --card-content-gap: 0;
+    --card-content-radius: 16px;
+
+    /* CAROUSEL */
+
+    --carousel-bottom-margin: 20px;
+
+    /* CARD TITLE */
+
+    --card-title-font-size: 1.25rem;
+
+    --card-title-top-margin: 20px;
+
+    /* CARD INFO */
+
+    --card-info-gap: 12px;
+    --card-info-entry-gap: 4px;
+
+    --card-info-icon-size: 20px;
+
+    --card-info-font-size: 0.95em;
+
+    --card-info-color: rgba(196, 203, 255, 0.6);
+
+    --card-info-top-margin: 8px;
+
+    /* TAGS */
+
+    --tags-gap-vertical: 6px;
+    --tags-gap-horizontal: 16px;
+
+    --tags-top-margin: 8px;
+
+    /* DESCRIPTION */
+
+    --description-font-size: 1.1rem;
+
+    --description-space-between-paragraphs: 14px;
+    --description-line-height:  135%;
+    --description-letter-spacing: 0.015rem;
+
+    --description-top-margin: 20px;
+
+    /* LINK BUTTON */
+
+    --button-padding-vertical: 10px;
+    --button-padding-horizontal: 16px;
+
+    --button-thin-border-width: 1px;
+    --button-thick-border-width: 2px;
+
+    --button-text-color: rgba(0, 0, 0, 0.8);
+
+    --buttons-container-top-margin: 32px;
+    --buttons-container-gap: 16px;
+
+    /* COLORS AND GRADIENTS */
+
+    --primary-color: #C11BFF;
+    --primary-gradient: linear-gradient(91deg, #E399FF 7.05%, #C11BFF 84.53%);
+
+    --secondary-color: #04CCF0;
+    --secondary-gradient: linear-gradient(96deg, #88EDFF 15.07%, #04CCF0 86.78%);
+
+    --tertiary-color: #297c65;
+    --tertiary-gradient: linear-gradient(96deg, #3faa95 15.07%, #2d7c73 86.78%);
+
+    --gradient-bright: linear-gradient(112deg, #04FEAB 0%, #3FC9FF 30.81%, #E300E5 98.11%);
+    --gradient-dark: linear-gradient(112deg, #1A2E29 0%, #1E2A31 31.4%, #332035 100%);
+
+    --transparent-gradient-dark: linear-gradient(149deg, rgba(33, 56, 49, 0.5) 7.51%,
+        rgba(33, 50, 60, 0.5) 30.88%, rgba(61, 33, 57, 0.5) 96.8%);
+}

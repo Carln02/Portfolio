@@ -2,10 +2,53 @@ portfolio-link-button {
     display: flex;
     flex-direction: row;
 
-    border-radius: 100px;
+    border-radius: 200px;
     align-items: center;
-    padding: 4px 16px;
-    background-color: #abc7af;
+    border: var(--button-thin-border-width) solid;
+    padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+}
+
+portfolio-link-button .icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
+portfolio-link-button .icon svg {
+    fill: var(--button-text-color);
+}
+
+portfolio-link-button div {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: 700;
+    color: var(--button-text-color);
+}
+
+portfolio-link-button.primary-button {
+    width: 100%;
+    background: var(--primary-gradient);
+    border-color: var(--primary-color);
+}
+
+portfolio-link-button.secondary-button {
+    width: calc(50% - var(--buttons-container-gap) / 2 - var(--button-padding-horizontal) * 2 - var(--button-thin-border-width) * 2);
+    background: var(--secondary-gradient);
+    border-color: var(--secondary-color);
+}
+
+portfolio-link-button.tertiary-button {
+    width: calc(50% - var(--buttons-container-gap) / 2 - var(--button-padding-horizontal) * 2 - var(--button-thick-border-width) * 2);
+    color: var(--tertiary-color);
+    border-color: var(--tertiary-color);
+    border-width: var(--button-thick-border-width);
+}
+
+portfolio-link-button.tertiary-button div {
+    color: var(--tertiary-color);
+}
+
+portfolio-link-button.tertiary-button .icon svg {
+    fill: var(--tertiary-color);
 }
 
 svg.link-path {

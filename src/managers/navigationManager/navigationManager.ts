@@ -15,7 +15,7 @@ export class NavigationManager {
     private readonly zoomTouchIntensity = 0.005 as const;
 
     //Zooming bounds
-    private readonly maxScale = 20 as const;
+    private readonly maxScale = 7.5 as const;
     private readonly minScale = 0.1 as const;
 
     private willChangeTimeout: NodeJS.Timeout = null;
@@ -48,8 +48,8 @@ export class NavigationManager {
     private set scale(value: number) {
         //Make sure the value is between the bounds. For some reason, removing the 0.01 offset on the bounds will
         // render the scaling stuck to one end when it is reached by the user.
-        if (value > this.maxScale) this._scale = this.maxScale - 0.01;
-        else if (value < this.minScale) this._scale = this.minScale + 0.01;
+        if (value > this.maxScale) this._scale = this.maxScale - 0.001;
+        else if (value < this.minScale) this._scale = this.minScale + 0.001;
         else this._scale = value;
         //Transform the canvas accordingly
         this.canvas.transform(this.translation, this.scale);

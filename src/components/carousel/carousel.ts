@@ -14,6 +14,8 @@ export class PortfolioCarousel extends TurboElement {
 
     constructor(images: string[], properties?: TurboProperties) {
         super(properties);
+        this.addClass("portfolio-carousel");
+
         this.images = images;
         this.setupUILayout();
         this.currentIndex = 0;
