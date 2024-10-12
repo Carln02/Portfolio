@@ -5,6 +5,7 @@ import {NavigationManager} from "../navigationManager/navigationManager";
 import {PortfolioRootCard} from "../../components/card/types/rootCard/rootCard";
 import {PortfolioLinkButton} from "../../components/linkButton/linkButton";
 import {PortfolioCard} from "../../components/card/card";
+import {PortfolioLinkData} from "../../components/linkButton/linkButton.types";
 
 export class DataManager {
     public readonly canvas: PortfolioCanvas;
@@ -24,9 +25,9 @@ export class DataManager {
         this.cards.push(rootCard);
 
         rootCard.links.forEach((link, name) =>
-            this.loadDataFromFile(dataFolderPath + name.toLowerCase() + ".json", link.element, link.side));
+            this.loadDataFromFile(dataFolderPath + name.toLowerCase() + ".json", link));
 
-        this.cards.forEach(card => card.origin = card.origin);
+        setTimeout(() => this.cards.forEach(card => card.origin = card.origin), 500);
     }
 
     private async generateRootFrom(filePath: string): Promise<PortfolioRootCard> {
@@ -40,7 +41,7 @@ export class DataManager {
         }
     }
 
-    private async loadDataFromFile(filePath: string, rootLink: PortfolioLinkButton, side: SideH = SideH.right) {
+    private async loadDataFromFile(filePath: string, rootLink: PortfolioLinkData) {
         try {
             const response = await fetch(filePath);
             const data = await response.json();
@@ -53,13 +54,15 @@ export class DataManager {
 
                 // Create a new PortfolioCard for each project
                 const newCard = new PortfolioFlowCard(this.navigationManager,
-                    {...entry, startDate: startDate, endDate: endDate, side: side},
+                    {...entry, startDate: startDate, endDate: endDate, side: rootLink.side},
                     {parent: this.canvas?.content});
+                newCard.previousLink.color = rootLink.color;
+                newCard.nextLink.color = rootLink.color;
                 this.cards.push(newCard);
 
                 if (i == 0) {
-                    newCard.previousLink.attachTo(rootLink.parentCard, false);
-                    rootLink.attachTo(newCard);
+                    newCard.previousLink.attachTo(rootLink.element?.parentCard, false);
+                    rootLink.element?.attachTo(newCard);
                 } else if (previousEntry) {
                     newCard.previousLink.attachTo(previousEntry, false);
                     previousEntry.nextLink.attachTo(newCard);

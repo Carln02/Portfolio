@@ -1,4 +1,4 @@
-import {css, define, div, Point, TurboElement} from "turbodombuilder";
+import {css, define, div, Point, Reifect, TurboElement} from "turbodombuilder";
 import {PortfolioToolbar} from "../toolbar/toolbar";
 import {NavigationManager} from "../../managers/navigationManager/navigationManager";
 import {ToolManager} from "../../managers/toolManager/toolManager";
@@ -16,6 +16,8 @@ export class PortfolioCanvas extends TurboElement {
     //Canvas's attached navigation manager
     public readonly navigationManager: NavigationManager;
 
+    private readonly transition: Reifect;
+
     //Main toolbar
     private readonly toolbar: PortfolioToolbar;
 
@@ -29,6 +31,12 @@ export class PortfolioCanvas extends TurboElement {
 
         this.content = div({parent: this, id: "canvas-content"});
 
+        this.transition = new Reifect({
+            transitionProperties: "transform",
+            transitionDuration: 0.3,
+            transitionTimingFunction: "ease-out",
+        });
+
         //Init toolbar
         this.toolbar = new PortfolioToolbar(toolManager, {parent: this, classes: "bottom-toolbar"});
         this.toolbar.populateWithAllTools();
@@ -40,6 +48,11 @@ export class PortfolioCanvas extends TurboElement {
 
     public get scale() {
         return this.navigationManager.scale;
+    }
+
+    public enableTransition(b: boolean) {
+        this.transition.enabled.transition = b;
+        this.transition.apply(this.content);
     }
 
     /**
@@ -57,8 +70,6 @@ export class PortfolioCanvas extends TurboElement {
 
         while (computedPosition.x < 0) computedPosition.x += 1920;
         while (computedPosition.x >= 1920) computedPosition.x -= 1920;
-
-        // computedPosition.x = computedPosition.x;
 
         while (computedPosition.y < 0) computedPosition.y += 1080;
         while (computedPosition.y >= 1080) computedPosition.y -= 1080;

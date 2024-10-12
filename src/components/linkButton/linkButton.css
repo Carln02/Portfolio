@@ -9,12 +9,12 @@ portfolio-link-button {
 }
 
 portfolio-link-button .icon {
-    width: var(--icon-size);
-    height: var(--icon-size);
-}
+    width: var(--button-icon-size);
+    height: var(--button-icon-size);
 
-portfolio-link-button .icon svg {
-    fill: var(--button-text-color);
+    svg {
+        fill: var(--button-text-color);
+    }
 }
 
 portfolio-link-button div {
@@ -26,29 +26,50 @@ portfolio-link-button div {
 
 portfolio-link-button.primary-button {
     width: 100%;
-    background: var(--primary-gradient);
-    border-color: var(--primary-color);
 }
 
 portfolio-link-button.secondary-button {
     width: calc(50% - var(--buttons-container-gap) / 2 - var(--button-padding-horizontal) * 2 - var(--button-thin-border-width) * 2);
-    background: var(--secondary-gradient);
-    border-color: var(--secondary-color);
 }
 
 portfolio-link-button.tertiary-button {
-    width: calc(50% - var(--buttons-container-gap) / 2 - var(--button-padding-horizontal) * 2 - var(--button-thick-border-width) * 2);
-    color: var(--tertiary-color);
-    border-color: var(--tertiary-color);
-    border-width: var(--button-thick-border-width);
+    width: calc(50% - var(--buttons-container-gap) / 2 - var(--button-padding-horizontal) * 2 - var(--button-thin-border-width) * 2);
 }
 
-portfolio-link-button.tertiary-button div {
-    color: var(--tertiary-color);
+portfolio-link-button.primary-button.purple-button, portfolio-link-button.secondary-button.purple-button {
+    background: var(--purple-primary-gradient);
+    border-color: var(--purple-primary-color);
 }
 
-portfolio-link-button.tertiary-button .icon svg {
-    fill: var(--tertiary-color);
+portfolio-link-button.tertiary-button.purple-button {
+    background: var(--purple-secondary-gradient);
+    border-color: var(--purple-secondary-color);
+
+    div {
+        color: var(--purple-secondary-light-color);
+    }
+
+    .icon svg {
+        fill: var(--purple-secondary-light-color);
+    }
+}
+
+portfolio-link-button.primary-button.blue-button, portfolio-link-button.secondary-button.blue-button {
+    background: var(--blue-primary-gradient);
+    border-color: var(--blue-primary-color);
+}
+
+portfolio-link-button.tertiary-button.blue-button {
+    background: var(--blue-secondary-gradient);
+    border-color: var(--blue-secondary-color);
+
+    div {
+        color: var(--blue-secondary-light-color);
+    }
+
+    .icon svg {
+        fill: var(--blue-secondary-light-color);
+    }
 }
 
 svg.link-path {

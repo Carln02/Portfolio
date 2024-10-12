@@ -3,9 +3,8 @@ import {PortfolioLinkButton} from "../../../linkButton/linkButton";
 import {NavigationManager} from "../../../../managers/navigationManager/navigationManager";
 import {auto, Coordinate, define, div, h2, img, spacer, TurboMap, TurboProperties} from "turbodombuilder";
 import {PortfolioRootCardData} from "./rootCard.types";
-import {SideH} from "../flowCard/flowCard.types";
 import "./rootCard.css";
-import {PortfolioLinkData} from "../../../linkButton/linkButton.types";
+import {ButtonLinkColor, PortfolioLinkData} from "../../../linkButton/linkButton.types";
 
 @define()
 export class PortfolioRootCard extends PortfolioCard {
@@ -52,6 +51,10 @@ export class PortfolioRootCard extends PortfolioCard {
 
     private setupLinks() {
         this.data.links.forEach(link => {
+            if (link.rank == 1) link.color = ButtonLinkColor.purple;
+            else if (link.rank == 2) link.color = ButtonLinkColor.blue;
+            else if (link.rank == 3) link.color = ButtonLinkColor.green;
+
             const linkButton = new PortfolioLinkButton(link, this, this.navigationManager);
             this.links.set(link.name, {...link, element: linkButton});
         });

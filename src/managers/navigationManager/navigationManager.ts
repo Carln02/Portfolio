@@ -86,6 +86,7 @@ export class NavigationManager {
      * @param e
      */
     public pan(e: TurboDragEvent | TurboWheelEvent) {
+        this.canvas.enableTransition(false);
         this.fireWillChangeTimeout();
 
         //Get panning value according to the wheel event provided
@@ -107,6 +108,7 @@ export class NavigationManager {
      * @param isTrackpad
      */
     public zoom(e: TurboWheelEvent | TurboDragEvent, isTrackpad: boolean = false) {
+        this.canvas.enableTransition(false);
         this.fireWillChangeTimeout();
 
         //Save old scale value

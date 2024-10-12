@@ -5,5 +5,12 @@ export type PortfolioLinkData = {
     name?: string,
     side?: SideH,
     rank?: number,
+    color?: ButtonLinkColor,
     element?: PortfolioLinkButton
 };
+
+export enum ButtonLinkColor {
+    purple = "purple",
+    blue = "blue",
+    green = "green"
+}

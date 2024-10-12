@@ -11,7 +11,7 @@ export class ToolView extends TurboButton<"h4"> {
     private readonly selectedClass = "selected" as const;
 
     constructor(tool: Tool) {
-        super({text: tool.name, elementTag: "h4", classes: "card clickable"});
+        super({text: tool.name, elementTag: "h4", classes: "card"});
         this.tool = tool;
         this.update();
     }

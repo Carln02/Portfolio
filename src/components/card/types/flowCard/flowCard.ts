@@ -49,6 +49,6 @@ export class PortfolioFlowCard extends PortfolioCard {
 
     protected setupUILayout() {
         super.setupUILayout();
-        div({parent: this, classes: "card-buttons", children: [this.leftLink, this.rightLink]});
+        div({parent: this, classes: "card-buttons", children: [this.leftLink, spacer(), this.rightLink]});
     }
 }

@@ -1,15 +1,18 @@
 import {
     auto,
     DefaultEventName,
-    define, element, Point, Shown, StatefulReifect,
+    define,
+    element,
+    Point,
+    Shown,
+    StatefulReifect,
     TurboButton,
-    TurboRichElementProperties,
     ValidTag
 } from "turbodombuilder";
 import "./linkButton.css";
 import {PortfolioCard} from "../card/card";
 import {NavigationManager} from "../../managers/navigationManager/navigationManager";
-import {PortfolioLinkData} from "./linkButton.types";
+import {ButtonLinkColor, PortfolioLinkData} from "./linkButton.types";
 import {SideH} from "../card/types/flowCard/flowCard.types";
 
 @define()
@@ -22,6 +25,8 @@ export class PortfolioLinkButton<ElementTag extends ValidTag = "p"> extends Turb
 
     private attachedCard: PortfolioCard;
     private showConnection: boolean;
+
+    private readonly chevronShape = "M -11 -9 L 1 0 L -12 9" as const;
 
     private readonly viewBoxPadding = 50 as const;
     private lastViewBoxUpdate: number = 0;
@@ -38,6 +43,8 @@ export class PortfolioLinkButton<ElementTag extends ValidTag = "p"> extends Turb
     public constructor(properties: PortfolioLinkData, parentCard: PortfolioCard, navigationManager: NavigationManager) {
         super({element: properties.name, leftIcon: "chevron-left", rightIcon: "chevron-right"});
         this.showTransition = PortfolioLinkButton.showTransition;
+
+        if (properties.color) this.color = properties.color;
 
         this.rightIcon.show(properties.side == SideH.right);
         this.leftIcon.show(properties.side == SideH.left);
@@ -58,6 +65,7 @@ export class PortfolioLinkButton<ElementTag extends ValidTag = "p"> extends Turb
 
         this.addListener(DefaultEventName.click, () => {
             if (!this.attachedCard) return;
+            this.navigationManager.canvas.enableTransition(true);
             this.navigationManager.navigateTo(this.attachedCard);
         });
     }
@@ -67,6 +75,13 @@ export class PortfolioLinkButton<ElementTag extends ValidTag = "p"> extends Turb
         this.toggleClass("primary-button", value == 1);
         this.toggleClass("secondary-button", value == 2);
         this.toggleClass("tertiary-button", value == 3 || !value);
+    }
+
+    @auto()
+    public set color(value: ButtonLinkColor) {
+        this.toggleClass("purple-button", value == ButtonLinkColor.purple);
+        this.toggleClass("blue-button", value == ButtonLinkColor.blue);
+        this.toggleClass("green-button", value == ButtonLinkColor.green || !value);
     }
 
     public attachTo(card: PortfolioCard, showConnection: boolean = true) {
@@ -92,10 +107,10 @@ export class PortfolioLinkButton<ElementTag extends ValidTag = "p"> extends Turb
                 x: cardRect.x > buttonRect.x + buttonRect.width ? 0
                     : cardRect.x + cardRect.width < buttonRect.x ? 1
                         : 0.5,
-                y: cardRect.x > buttonRect.x + buttonRect.width || cardRect.x + cardRect.width < buttonRect.x ? 0.1
-                    : cardRect.y > buttonRect.y ? 0.1
+                y: cardRect.x > buttonRect.x + buttonRect.width || cardRect.x + cardRect.width < buttonRect.x ? 0
+                    : cardRect.y > buttonRect.y ? 0
                         : 1
-            });
+            }).add(0, 40);
 
             const buttonPosition = this.navigationManager.getPositionOf(this, {
                 x: cardRect.x > buttonRect.x + buttonRect.width ? 1
@@ -135,11 +150,27 @@ export class PortfolioLinkButton<ElementTag extends ValidTag = "p"> extends Turb
 
         const pathData = `M${start.x},${start.y} C${control1.x},${control1.y} ${control2.x},${control2.y} ${end.x},${end.y}`;
 
-        element({tag: "path", namespace: "http://www.w3.org/2000/svg", parent: this.pathSvg})
+        const path = element({tag: "path", namespace: "http://www.w3.org/2000/svg", parent: this.pathSvg})
             .setAttribute("namespace", "http://www.w3.org/2000/svg")
             .setAttribute("d", pathData)
-            .setAttribute("stroke", "black")
-            .setAttribute("fill", "transparent")
-            .setAttribute("stroke-width", "2");
+            .setStyle("stroke", "var(--" + this.color + "-primary-color)", true)
+            .setStyle("fill", "transparent", true)
+            .setStyle("strokeWidth", "2", true);
+
+        const pathLength = path.getTotalLength();
+
+        this.drawChevron(path.getPointAtLength(pathLength / 2), path.getPointAtLength(pathLength / 2 + 1));
+        this.drawChevron(path.getPointAtLength(pathLength - 1), path.getPointAtLength(pathLength));
+    }
+
+    private drawChevron(point: DOMPoint, nextPoint: DOMPoint) {
+        const angle = Math.atan2(nextPoint.y - point.y, nextPoint.x - point.x) * (180 / Math.PI);
+        element({tag: "path", namespace: "http://www.w3.org/2000/svg", parent: this.pathSvg})
+            .setAttribute("namespace", "http://www.w3.org/2000/svg")
+            .setAttribute("d", this.chevronShape)
+            .setAttribute("transform", `translate(${point.x}, ${point.y}) rotate(${angle})`)
+            .setStyle("stroke", "var(--" + this.color + "-primary-color)", true)
+            .setStyle("fill", "transparent", true)
+            .setStyle("strokeWidth", "2", true);
     }
 }

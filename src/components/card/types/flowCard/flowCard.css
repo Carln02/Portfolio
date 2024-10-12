@@ -1,0 +1,4 @@
+.portfolio-flow-card .card-buttons {
+    gap: calc(var(--buttons-container-gap) / 2);
+    flex-wrap: nowrap;
+}
