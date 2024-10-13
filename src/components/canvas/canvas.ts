@@ -38,7 +38,7 @@ export class PortfolioCanvas extends TurboElement {
         });
 
         //Init toolbar
-        this.toolbar = new PortfolioToolbar(toolManager, {parent: this, classes: "bottom-toolbar"});
+        this.toolbar = new PortfolioToolbar(toolManager, {parent: this});
         this.toolbar.populateWithAllTools();
     }
 

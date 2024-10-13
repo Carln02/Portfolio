@@ -2,7 +2,12 @@ portfolio-toolbar {
     position: fixed;
 
     display: flex;
+    flex-direction: row;
     gap: var(--toolbar-gap);
+
+    bottom: var(--toolbar-bottom-offset);
+    left: 50%;
+    transform: translateX(-50%);
 
     padding: var(--toolbar-padding);
     border-radius: var(--card-content-radius);
@@ -12,22 +17,6 @@ portfolio-toolbar {
     backdrop-filter: blur(var(--card-backdrop-blur));
 
     z-index: 2;
-}
-
-portfolio-toolbar.bottom-toolbar {
-    flex-direction: row;
-
-    bottom: 2.5em;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-portfolio-toolbar.left-toolbar {
-    flex-direction: column;
-
-    left: 2.5em;
-    top: 50%;
-    transform: translate(0, -50%);
 }
 
 .toolbar-separator {
