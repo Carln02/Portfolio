@@ -19,7 +19,7 @@ export class PortfolioCanvas extends TurboElement {
     private readonly transition: Reifect;
 
     //Main toolbar
-    private readonly toolbar: PortfolioToolbar;
+    public readonly toolbar: PortfolioToolbar;
 
     private readonly background: HTMLElement;
 

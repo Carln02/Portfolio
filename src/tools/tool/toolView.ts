@@ -11,7 +11,7 @@ export class ToolView extends TurboButton<"h4"> {
     private readonly selectedClass = "selected" as const;
 
     constructor(tool: Tool) {
-        super({text: tool.name, elementTag: "h4", classes: "card"});
+        super({classes: "portfolio-tool"});
         this.tool = tool;
         this.update();
     }
@@ -32,5 +32,6 @@ export class ToolView extends TurboButton<"h4"> {
      */
     public update() {
         this.toggleClass(this.selectedClass, this.selected);
+        this.leftIcon = this.tool.icon + "-" + (this.selected ? "filled" : "outlined");
     }
 }

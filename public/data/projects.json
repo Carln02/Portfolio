@@ -10,7 +10,11 @@
     "startDate": "2023-02-01",
     "endDate": "2023-05-01",
     "link": "https://www.figma.com/proto/PkBSjGOiQ0FFeoO8L6aCld/eave-Overview",
-    "tags": ["3D", "Game Dev"],
+    "tags": [
+      "3D",
+      "Game Dev",
+      "Interaction Design"
+    ],
     "description": "3D virtual and collaborative shopping environment created with my partner Naeem Hassan. I created and implemented the user interface and the environment and interaction logic.",
     "origin": {
       "x": 760,
@@ -21,10 +25,79 @@
     "title": "TurboDOMBuilder",
     "startDate": "2024-02-01",
     "link": "https://github.com/Carln02/TurboDOMBuilder",
-    "tags": ["Web Dev"],
-    "description": "A lightweight JavaScript library to easily create DOM elements, and that provide basic interaction-centric components suited for customization, and a utility to easily manage CSS styling and transitions.\nThis portfolio website was actually created using TurboDOMBuilder! YOu can check out the source code <a target=\"_blank\" href=\"https://github.com/Carln02/Portfolio\">here</a>.",
+    "tags": [
+      "Web Dev"
+    ],
+    "description": "A lightweight JavaScript library to easily create DOM elements, and that provide basic interaction-centric components suited for customization, and a utility to easily manage CSS styling and transitions.\nThis portfolio website was actually created using TurboDOMBuilder! You can check out the source code <a target=\"_blank\" href=\"https://github.com/Carln02/Portfolio\">here</a>.",
     "origin": {
       "x": 2000,
+      "y": 600
+    }
+  },
+  {
+    "images": [
+      "assets/images/upool/img1.png"
+    ],
+    "title": "Upool Carpooling System",
+    "startDate": "2022-12-01",
+    "endDate": "2022-12-01",
+    "link": "https://www.figma.com/proto/MKiHcDdB4uqxE3nlsGapQi/Presentation",
+    "tags": [
+      "UX Design"
+    ],
+    "description": "Designed a transportation solution for university students in Lebanon.",
+    "origin": {
+      "x": 2500,
+      "y": 600
+    }
+  },
+  {
+    "images": [
+      "assets/images/child-bullying/img1.png"
+    ],
+    "title": "Child Bullying Visualization",
+    "startDate": "2024-03-01",
+    "endDate": "2024-03-01",
+    "link": "https://child-bullying-visualization.vercel.app/",
+    "tags": [
+      "Visualization",
+      "Web Dev"
+    ],
+    "description": "An interactive visualization created with my teammate Andreas Charalambides that depicts Argentinian children's probability of getting bullied based on different characteristics.",
+    "origin": {
+      "x": 3000,
+      "y": 600
+    }
+  },
+  {
+    "images": [
+      "assets/images/colorscope-yellow/vid1.mp4",
+      "assets/images/mr-ice-cream-scoop/vid1.m4v"
+    ],
+    "title": "3D Animations",
+    "startDate": "2021-10-01",
+    "endDate": "2022-02-01",
+    "tags": [
+      "3D"
+    ],
+    "description": "Two 3D animation I created completely from scratch. The first one was created to an audio taken from CNN’s Colorscope series.",
+    "origin": {
+      "x": 5000,
+      "y": 600
+    }
+  },
+  {
+    "title": "Invisible Haunted Mansion",
+    "startDate": "2023-09-01",
+    "endDate": "2023-10-01",
+    "link": "https://carln02.itch.io/invisible-haunted-mansion",
+    "tags": [
+      "Game Dev",
+      "Interaction Design"
+    ],
+    "description": "An immersive ghost-hunting game created in a group project where the player catches ghosts in their physical room using their smartphone/wearable device with auditory and haptic  feedback. I implemented the interface and the game logic.",
+    "origin": {
+      "x": 6000,
       "y": 600
     }
   }

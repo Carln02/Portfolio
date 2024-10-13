@@ -11,7 +11,7 @@ export class MoveTool extends Tool {
     private currentTarget: Element;
 
     constructor() {
-        super(ToolType.move);
+        super(ToolType.move, "pointer");
     }
 
     public dragStart(e: TurboDragEvent) {

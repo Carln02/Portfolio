@@ -11,7 +11,7 @@ export class NavigatorTool extends Tool {
     private readonly navigationManager: NavigationManager;
 
     constructor(navigationManager: NavigationManager) {
-        super(ToolType.navigator);
+        super(ToolType.navigator, "hand");
         this.navigationManager = navigationManager;
     }
 

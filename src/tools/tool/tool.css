@@ -1,3 +1,19 @@
-portfolio-tool.selected {
-    background-color: aquamarine;
+.portfolio-tool {
+    width: var(--tool-icon-size);
+    height: var(--tool-icon-size);
+    padding: var(--tool-icon-padding);
+    transition: var(--tool-hover-transition);
+}
+
+.portfolio-tool.selected {
+    background-color: var(--tool-icon-selected-background-color);
+    border-radius: var(--tool-icon-radius);
+}
+
+.portfolio-tool:hover {
+    transform: scale3d(var(--tool-icon-selected-scale), var(--tool-icon-selected-scale), 1);
+}
+
+.portfolio-tool svg {
+    fill: var(--tool-icon-color);
 }

@@ -8,6 +8,26 @@
 
     --icon-size: 20px;
 
+    /* TOOLBAR */
+
+    --toolbar-separator-width: 2px;
+    --toolbar-separator-margin: 8px;
+    --toolbar-separator-color: rgba(255, 255, 255, 0.1);
+
+    --toolbar-padding: 12px;
+    --toolbar-gap: 12px;
+
+    --tool-icon-size: 28px;
+    --tool-icon-padding: 8px;
+    --tool-icon-radius: 8px;
+
+    --tool-icon-color: white;
+
+    --tool-hover-transition: all 0.05s ease-in-out;
+
+    --tool-icon-selected-background-color: rgba(165, 152, 255, 0.1);
+    --tool-icon-selected-scale: 1.1;
+
     /* CARD (SELF) */
 
     --card-min-width: 400px;

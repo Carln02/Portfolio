@@ -81,7 +81,8 @@ export class PortfolioCard extends TurboElement {
         if (this.data.link) this.linkElement = richElement({
             element: a({
                 text: this.data.linkText || "Link",
-                href: this.data.link
+                href: this.data.link,
+                target: "_blank"
             }) as any, leftIcon: "link", classes: "card-link"
         });
 

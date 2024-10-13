@@ -1,9 +1,7 @@
 import {PortfolioCanvas} from "../../components/canvas/canvas";
 import {PortfolioFlowCard} from "../../components/card/types/flowCard/flowCard";
-import {SideH} from "../../components/card/types/flowCard/flowCard.types";
 import {NavigationManager} from "../navigationManager/navigationManager";
 import {PortfolioRootCard} from "../../components/card/types/rootCard/rootCard";
-import {PortfolioLinkButton} from "../../components/linkButton/linkButton";
 import {PortfolioCard} from "../../components/card/card";
 import {PortfolioLinkData} from "../../components/linkButton/linkButton.types";
 
@@ -22,6 +20,7 @@ export class DataManager {
     public async populate(dataFolderPath: string = "data") {
         if (dataFolderPath.length > 0 && !dataFolderPath.endsWith("/") && !dataFolderPath.endsWith("\\")) dataFolderPath += "/";
         const rootCard = await this.generateRootFrom(dataFolderPath + "root.json");
+        this.canvas.toolbar.generateHomeButton(rootCard, this.navigationManager);
         this.cards.push(rootCard);
 
         rootCard.links.forEach((link, name) =>

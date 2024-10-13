@@ -11,14 +11,16 @@ export class Tool {
      * @description The name of the tool
      */
     public readonly name: ToolType;
+    public readonly icon: string;
 
     private _selected: boolean = false;
 
     //DOM elements representing this tool
     private readonly instances: ToolView[] = [];
 
-    constructor(name: ToolType) {
+    constructor(name: ToolType, icon: string) {
         this.name = name;
+        this.icon = icon;
     }
 
     /**

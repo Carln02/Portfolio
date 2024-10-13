@@ -1,4 +1,15 @@
-import {define, div, button, TurboElement, TurboProperties, DefaultEventName, mod, img, Reifect} from "turbodombuilder";
+import {
+    define,
+    div,
+    button,
+    TurboElement,
+    TurboProperties,
+    DefaultEventName,
+    mod,
+    img,
+    Reifect,
+    getFileExtension, video, element
+} from "turbodombuilder";
 import "./carousel.css";
 
 @define()
@@ -31,11 +42,7 @@ export class PortfolioCarousel extends TurboElement {
 
         this.imageContainerTransition.apply(this.imageContainer);
 
-        this.images.forEach(imageUrl => img({
-            classes: "carousel-image",
-            src: imageUrl,
-            parent: this.imageContainer
-        }));
+        this.images.forEach(imageUrl => this.createImage(imageUrl));
 
         if (this.images.length < 2) return;
 
@@ -71,5 +78,15 @@ export class PortfolioCarousel extends TurboElement {
 
         this.dots.forEach((dot, index) =>
             dot.toggleClass("active", index == this.currentIndex));
+    }
+
+    private createImage(imageUrl: string) {
+        const extension = getFileExtension(imageUrl);
+        if (extension == ".mp4" || extension == ".m4v") video({
+            classes: "carousel-image", controls: true, parent: this.imageContainer, children: [
+                element({tag: "source", type: "video/mp4", src: imageUrl})
+            ]
+        });
+        else img({classes: "carousel-image", src: imageUrl, parent: this.imageContainer});
     }
 }

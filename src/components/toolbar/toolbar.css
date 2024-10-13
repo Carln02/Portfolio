@@ -2,9 +2,9 @@ portfolio-toolbar {
     position: fixed;
 
     display: flex;
-    gap: 1em;
+    gap: var(--toolbar-gap);
 
-    padding: 1.5em;
+    padding: var(--toolbar-padding);
     border-radius: var(--card-content-radius);
 
     border: var(--card-border-width) solid var(--card-border-color);
@@ -28,4 +28,10 @@ portfolio-toolbar.left-toolbar {
     left: 2.5em;
     top: 50%;
     transform: translate(0, -50%);
+}
+
+.toolbar-separator {
+    width: var(--toolbar-separator-width);
+    margin: var(--toolbar-separator-margin);
+    background-color: var(--toolbar-separator-color);
 }
