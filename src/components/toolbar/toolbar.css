@@ -6,8 +6,6 @@ portfolio-toolbar {
     gap: var(--toolbar-gap);
 
     bottom: var(--toolbar-bottom-offset);
-    left: 50%;
-    transform: translateX(-50%);
 
     padding: var(--toolbar-padding);
     border-radius: var(--card-content-radius);
@@ -16,6 +14,10 @@ portfolio-toolbar {
     background: var(--transparent-gradient-dark);
     backdrop-filter: blur(var(--card-backdrop-blur));
 
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+
+    will-change: transform;
     z-index: 2;
 }
 

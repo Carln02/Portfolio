@@ -1,3 +1,6 @@
+head {
+    display: none;
+}
 body {
     user-select: none;
     overflow: hidden;
@@ -14,10 +17,6 @@ body::-webkit-scrollbar {
     position: relative;
     margin: 0;
     font-family: "Teachers", sans-serif;
-}
-
-head {
-    display: none;
 }
 
 .icon {
