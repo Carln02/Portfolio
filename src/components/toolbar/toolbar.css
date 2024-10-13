@@ -5,8 +5,8 @@ portfolio-toolbar {
     flex-direction: row;
     gap: var(--toolbar-gap);
 
-    bottom: var(--toolbar-bottom-offset);
-
+    bottom: 0;
+    margin-bottom: var(--toolbar-bottom-margin);
     padding: var(--toolbar-padding);
     border-radius: var(--card-content-radius);
 

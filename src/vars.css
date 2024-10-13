@@ -11,7 +11,7 @@
     /* TOOLBAR */
 
     --toolbar-padding: 12px;
-    --toolbar-bottom-offset: 32px;
+    --toolbar-bottom-margin: 32px;
     --toolbar-gap: 12px;
 
     --toolbar-separator-width: 2px;

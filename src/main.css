@@ -1,6 +1,11 @@
 head {
     display: none;
 }
+
+html, body {
+    overscroll-behavior: none;
+}
+
 body {
     user-select: none;
     overflow: hidden;
