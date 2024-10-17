@@ -8,6 +8,11 @@
     align-items: end;
 }
 
+.portfolio-root-card .card-title-div > h2 {
+    font-size: 3.7rem;
+    font-weight: 600;
+}
+
 .portfolio-root-card .card-title-div > img {
     width: 130px;
     height: 130px;

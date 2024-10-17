@@ -5,8 +5,8 @@
     "endDate": "2023-09-01",
     "awardedBy": "Université Paris-Saclay",
     "origin": {
-      "x": -1050,
-      "y": 200
+      "x": -1180,
+      "y": 580
     }
   },
   {
@@ -16,8 +16,8 @@
     "awardedBy": "Murex",
     "description": "Most Collaborative Development Project Award for my Capstone Project \"eave\".",
     "origin": {
-      "x": -1900,
-      "y": 80
+      "x": -2050,
+      "y": 570
     }
   },
   {
@@ -26,8 +26,8 @@
     "endDate": "2020-09-01",
     "awardedBy": "Lebanese American University",
     "origin": {
-      "x": -2700,
-      "y": 400
+      "x": -2800,
+      "y": 920
     }
   }
 ]

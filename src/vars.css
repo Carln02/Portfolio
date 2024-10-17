@@ -12,13 +12,13 @@
 
     --toolbar-padding: 12px;
     --toolbar-bottom-margin: 24px;
-    --toolbar-gap: 12px;
+    --toolbar-gap: 8px;
 
     --toolbar-separator-width: 2px;
     --toolbar-separator-margin: 8px;
     --toolbar-separator-color: rgba(255, 255, 255, 0.1);
 
-    --tool-icon-size: 28px;
+    --tool-icon-size: 24px;
     --tool-icon-padding: 8px;
     --tool-icon-radius: 8px;
 

@@ -17,8 +17,8 @@
     ],
     "description": "3D virtual and collaborative shopping environment created with my partner Naeem Hassan. I created and implemented the user interface and the environment and interaction logic.",
     "origin": {
-      "x": 760,
-      "y": 500
+      "x": 690,
+      "y": 790
     }
   },
   {
@@ -30,8 +30,8 @@
     ],
     "description": "A lightweight JavaScript library to easily create DOM elements, and that provide basic interaction-centric components suited for customization, and a utility to easily manage CSS styling and transitions.\nThis portfolio website was actually created using TurboDOMBuilder! You can check out the source code <a target=\"_blank\" href=\"https://github.com/Carln02/Portfolio\">here</a>.",
     "origin": {
-      "x": 2000,
-      "y": 600
+      "x": 1800,
+      "y": 1215
     }
   },
   {
@@ -47,8 +47,8 @@
     ],
     "description": "Designed a transportation solution for university students in Lebanon.",
     "origin": {
-      "x": 2500,
-      "y": 600
+      "x": 2800,
+      "y": 1775
     }
   },
   {
@@ -65,8 +65,8 @@
     ],
     "description": "An interactive visualization created with my teammate Andreas Charalambides that depicts Argentinian children's probability of getting bullied based on different characteristics.",
     "origin": {
-      "x": 3000,
-      "y": 600
+      "x": 4000,
+      "y": 1500
     }
   },
   {
@@ -82,8 +82,8 @@
     ],
     "description": "Two 3D animation I created completely from scratch. The first one was created to an audio taken from CNN’s Colorscope series.",
     "origin": {
-      "x": 5000,
-      "y": 600
+      "x": 5150,
+      "y": 1770
     }
   },
   {
@@ -97,8 +97,8 @@
     ],
     "description": "An immersive ghost-hunting game created in a group project where the player catches ghosts in their physical room using their smartphone/wearable device with auditory and haptic  feedback. I implemented the interface and the game logic.",
     "origin": {
-      "x": 6000,
-      "y": 600
+      "x": 6250,
+      "y": 2500
     }
   }
 ]

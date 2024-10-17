@@ -12,8 +12,8 @@
     "tags": ["Web Dev", "Prototyping", "Ideation"],
     "description": "Internship where I developed a new interactive and instrumental-driven version of VideoClipper, a tool for video prototyping.",
     "origin": {
-      "x": -1200,
-      "y": -800
+      "x": -1416,
+      "y": -450
     }
   },
   {
@@ -26,8 +26,8 @@
     "tags": ["Web Dev", "R&D", "3D", "AR"],
     "description": "Research internship where I developed image tracking and markerless web based AR. I also participated in the modeling for two projection mapping animations for Jeddah Festival.",
     "origin": {
-      "x": -2000,
-      "y": -550
+      "x": -2432,
+      "y": -190
     }
   }
 ]
