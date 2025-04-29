@@ -18,6 +18,6 @@
   },
   "private": true,
   "dependencies": {
-    "turbodombuilder": "^0.8.16"
+    "turbodombuilder": "0.8.16"
   }
 }

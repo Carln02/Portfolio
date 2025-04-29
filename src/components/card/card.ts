@@ -1,9 +1,9 @@
 import {
-    a, auto, Coordinate,
+    a, auto, Coordinate, css,
     define, Delegate, div,
     flexRow,
     h3,
-    h4,
+    h4, icon,
     p,
     richElement,
     TurboElement,
@@ -85,6 +85,8 @@ export class PortfolioCard extends TurboElement {
                 target: "_blank"
             }) as any, leftIcon: "link", classes: "card-link"
         });
+
+        icon({icon: "link", iconColor: "red"});
 
         this.tagsElements = [];
         if (this.data.tags) this.data.tags.forEach(tag => this.tagsElements.push(
