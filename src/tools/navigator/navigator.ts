@@ -6,8 +6,8 @@ import {NavigationManager} from "../../managers/navigationManager/navigationMana
 /**
  * @description Tool that allows the user to pan the canvas
  */
-@define("navigator-tool")
-export class NavigatorTool extends Tool {
+@define()
+export class NavigatorToolButton extends Tool {
     private readonly navigationManager: NavigationManager;
 
     constructor(navigationManager: NavigationManager) {

@@ -1,9 +1,9 @@
 import {Tool} from "../../tools/tool/tool";
 import {ClickMode, Delegate, TurboDragEvent, TurboEvent, TurboEventName, TurboKeyEvent} from "turbodombuilder";
 import {SetToolOptions, ToolType} from "./toolManager.types";
-import {MoveTool} from "../../tools/move/move";
+import {MoveToolButton} from "../../tools/move/move";
 import {NavigationManager} from "../navigationManager/navigationManager";
-import {NavigatorTool} from "../../tools/navigator/navigator";
+import {NavigatorToolButton} from "../../tools/navigator/navigator";
 
 /**
  * @description Manages (ideally) all the tools in the application
@@ -42,8 +42,8 @@ export class ToolManager {
 
     private initTools() {
         //Create all tools
-        this.addTool(new MoveTool(), "Shift");
-        this.addTool(new NavigatorTool(this.navigationManager), "Control");
+        this.addTool(new MoveToolButton(), "Shift");
+        this.addTool(new NavigatorToolButton(this.navigationManager), "Control");
 
         //Init default tools at hand
         this.setTool(this.getToolByKey("Shift"), ClickMode.left);
