@@ -5,7 +5,7 @@ portfolio-toolbar {
     flex-direction: row;
     gap: var(--toolbar-gap);
 
-    bottom: 0;
+    bottom: env(safe-area-inset-bottom, 0);
     margin-bottom: var(--toolbar-bottom-margin);
     padding: var(--toolbar-padding);
     border-radius: var(--card-content-radius);
@@ -18,6 +18,8 @@ portfolio-toolbar {
     transform: translate3d(-50%, 0, 0);
 
     touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
 
     will-change: transform;
     z-index: 2;
