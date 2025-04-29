@@ -1,7 +1,18 @@
 import {PortfolioCard} from "../../card";
 import {PortfolioLinkButton} from "../../../linkButton/linkButton";
 import {NavigationManager} from "../../../../managers/navigationManager/navigationManager";
-import {auto, Coordinate, define, div, h2, img, spacer, TurboMap, TurboProperties} from "turbodombuilder";
+import {
+    auto,
+    Coordinate,
+    DefaultEventName,
+    define,
+    div,
+    h2,
+    img,
+    spacer,
+    TurboMap,
+    TurboProperties
+} from "turbodombuilder";
 import {PortfolioRootCardData} from "./rootCard.types";
 import "./rootCard.css";
 import {ButtonLinkColor, PortfolioLinkData} from "../../../linkButton/linkButton.types";
@@ -22,6 +33,9 @@ export class PortfolioRootCard extends PortfolioCard {
         this.links.enforceImmutability = false;
 
         this.setupLinks();
+        this.querySelector("a").addListener(DefaultEventName.click, () => {
+            window.location.href = this.querySelector("a").href;
+        })
     }
 
     @auto()
