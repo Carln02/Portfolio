@@ -18,6 +18,7 @@ const canvas: PortfolioCanvas = new PortfolioCanvas(navigationManager, toolManag
 navigationManager.canvas = canvas;
 
 const eventManager = new TurboEventManager({
+    preventDefaultTouch: true,
     scaleEventPosition: (position: Point) => navigationManager.computePositionRelativeToCanvas(position),
 });
 
