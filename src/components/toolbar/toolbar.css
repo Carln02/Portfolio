@@ -17,6 +17,8 @@ portfolio-toolbar {
     left: 50%;
     transform: translate3d(-50%, 0, 0);
 
+    touch-action: manipulation;
+
     will-change: transform;
     z-index: 2;
 }
