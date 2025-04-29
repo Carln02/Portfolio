@@ -11,6 +11,10 @@ turbofy();
 TurboIcon.config.defaultDirectory = "assets/icons";
 TurboIcon.config.defaultClasses = "icon";
 
+document.addEventListener('touchstart', function (e) {
+    e.preventDefault();
+}, { passive: false });
+
 const navigationManager = new NavigationManager();
 const toolManager: ToolManager = new ToolManager(navigationManager);
 
