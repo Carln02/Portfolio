@@ -4,7 +4,6 @@ import {
     listener,
     Point,
     turbo,
-    TurboDragEvent,
     TurboInteractor,
     TurboWheelEvent
 } from "turbodombuilder";
@@ -20,43 +19,32 @@ export class CanvasNavigationInteractor extends TurboInteractor<Canvas, CanvasVi
     @listener() scroll(e: TurboWheelEvent) {this.pan(e);}
     @listener() pinch(e: TurboWheelEvent) {
         if (e.inputDevice === InputDevice.touch && e.clickMode === ClickMode.left) return;
-        this.zoom(e, true);
+        this.zoom(e);
     }
 
-    public pan(e: TurboWheelEvent | TurboDragEvent) {
+    public pan(e: TurboWheelEvent) {
         this.element.enableTransition(false);
         this.fireWillChangeTimeout();
-        this.model.translate(e instanceof TurboWheelEvent
-            ? new Point(-e.delta?.x, -e.delta?.y)
-            : e.scaledDeltaPosition?.mul(this.model.scale));
+        this.model.translate(e.inputDevice === InputDevice.touch
+            ? e.delta
+            : new Point(-e.delta?.x, -e.delta?.y));
     }
 
     /**
      * @description Zooms the canvas
      * @param e
-     * @param isTrackpad
      */
-    public zoom(e: TurboWheelEvent | TurboDragEvent, isTrackpad: boolean = false) {
+    public zoom(e: TurboWheelEvent) {
         this.element.enableTransition(false);
         this.fireWillChangeTimeout();
 
         const oldScale: number = this.model.scale;
-        let zoomOrigin = new Point(window.innerWidth / 2, window.innerHeight / 2).sub(this.model.translation);
+        const zoomOrigin = new Point(window.innerWidth / 2, window.innerHeight / 2).sub(this.model.translation);
 
-        //Touch Event
-        if (e instanceof TurboDragEvent) {
-            const positionsArray = e.scaledPositions.valuesArray();
-            const previousPositionsArray = e.scaledPreviousPositions.valuesArray();
-            zoomOrigin = Point.midPoint(...positionsArray).mul(this.model.scale);
-            this.model.scale += this.model.scale * this.model.scale * (Point.dist(positionsArray[0], positionsArray[1]) -
-                Point.dist(previousPositionsArray[0], previousPositionsArray[1])) * this.model.zoomTouchIntensity;
-        }
-
-        //Trackpad
-        else if (isTrackpad) this.model.scale -= this.model.scale * e.delta.y * this.model.zoomTrackpadIntensity;
-
-        //Mouse Wheel
-        else this.model.scale -= this.model.scale * (e.delta.y > 0 ? 1 : -1) * this.model.zoomMouseIntensity;
+        if (e.inputDevice === InputDevice.touch)
+            this.model.scale += this.model.scale * e.delta.y * this.model.zoomTouchIntensity;
+        else
+            this.model.scale -= this.model.scale * e.delta.y * this.model.zoomTrackpadIntensity;
 
         //Translate the viewport to make the zooming origin from the center of the screen
         this.model.translate(zoomOrigin.mul(1 - this.model.scale / oldScale));

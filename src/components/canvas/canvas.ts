@@ -4,7 +4,6 @@ import {
     expose, interactor,
     Point,
     Reifect, turbo,
-    TurboDragEvent,
     TurboElement, TurboWheelEvent
 } from "turbodombuilder";
 import "./canvas.css";
@@ -55,11 +54,11 @@ export class Canvas extends TurboElement<CanvasView, any, CanvasModel> {
         return screenPosition?.sub(this.translation).div(this.scale);
     }
 
-    public pan(e: TurboDragEvent | TurboWheelEvent) {
+    public pan(e: TurboWheelEvent) {
         this.navigationInteractor.pan(e);
     }
 
-    public zoom(e: TurboDragEvent | TurboWheelEvent) {
+    public zoom(e: TurboWheelEvent) {
         this.navigationInteractor.zoom(e);
     }
 
