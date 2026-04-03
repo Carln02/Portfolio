@@ -1,6 +1,7 @@
 {
   "profilePicture": "assets/images/profile-picture.jpg",
-  "description": "I’m <b>Carl</b> Abou Saada Nujaim and I am a <b>developer</b>, <b>designer</b>, and <b>future researcher</b> interested in the world of creativity support tools.<br>I wish to enhance the <b>designer-developer workflow</b> and make it easier and more accessible for designers and developers to conceive <b>user-centric interactive platforms</b>.\nYou can also check out my CV <a target=\"_blank\" href=\"./Carl Abou Saada Nujaim - CV.pdf\">here</a>.",
+  "description": "I'm <b>Carl</b> Abou Saada Nujaim and I'm a 1st year <b>PhD student</b> in <b>Human-Computer Interaction</b> at Université Paris-Saclay with a background in <b>Computer Science</b> and <b>Animation</b>. I am supervised by Wendy Mackay and Michel Beaudouin-Lafon.\nMy research focuses on bridging the gap between designers and developers when creating interactive systems, as well as making HCI concepts and theories more accessible to them throughout this process. \nYou can also check out my <a target=\"_blank\" href=\"https://www.linkedin.com/in/carl-abou-saada-nujaim\">LinkedIn</a> and my <a target=\"_blank\" href=\"./Carl Abou Saada Nujaim - CV.pdf\">CV</a>.",
+
   "links": [
     {
       "name": "Experience",
@@ -23,6 +24,11 @@
       "rank": 2
     },
     {
+      "name": "Publications",
+      "side": "left",
+      "rank": 1
+    },
+    {
       "name": "Projects",
       "side": "right",
       "rank": 1
@@ -30,6 +36,6 @@
   ],
   "origin": {
     "x": -200,
-    "y": -220
+    "y": -380
   }
 }

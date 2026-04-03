@@ -1,12 +1,12 @@
-import {SideH} from "../card/types/flowCard/flowCard.types";
-import {PortfolioLinkButton} from "./linkButton";
+import {SideH} from "turbodombuilder";
+import {Card} from "../card/card";
 
-export type PortfolioLinkData = {
+export type LinkData = {
     name?: string,
     side?: SideH,
     rank?: number,
     color?: ButtonLinkColor,
-    element?: PortfolioLinkButton
+    target?: Card
 };
 
 export enum ButtonLinkColor {
