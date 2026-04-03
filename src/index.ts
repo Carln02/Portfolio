@@ -35,4 +35,6 @@ document.addEventListener("gesturechange", (e) => e.preventDefault(), {passive: 
 //     // TurboIcon.create({tools: NavigatorTool})
 // );
 
+TurboIcon.create({tools: NavigatorTool});
+
 new DataManager(canvas).populate();
