@@ -20,6 +20,6 @@
   "private": true,
   "dependencies": {
     "d3": "^7.9.0",
-    "turbodombuilder": "0.9.62"
+    "turbodombuilder": "0.9.63"
   }
 }
