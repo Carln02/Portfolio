@@ -32,7 +32,7 @@
     margin-top: var(--card-info-top-margin);
 }
 
-.portfolio-card .card-info .turbo-rich-element {
+.portfolio-card .card-info turbo-rich-element {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -40,16 +40,15 @@
     font-size: var(--card-info-font-size);
 }
 
-.portfolio-card .card-info turbo-rich-element > h4 {
+.portfolio-card .card-info turbo-rich-element div {
     color: var(--card-info-color);
 }
 
-.portfolio-card .turbo-icon {
+.portfolio-card .card-info turbo-rich-element .icon {
     width: var(--card-info-icon-size);
     height: var(--card-info-icon-size);
 }
-.portfolio-card .turbo-icon svg {
-    display: block;
+.portfolio-card .card-info turbo-rich-element svg {
     fill: var(--card-info-color);
 }
 
@@ -67,7 +66,6 @@
 .portfolio-card .card-tags .card-tag {
     padding: 4px 8px;
     border-radius: 50px;
-    border: 0.15em solid black;
 }
 
 /* DESCRIPTION */

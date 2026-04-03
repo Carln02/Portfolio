@@ -1,89 +1,92 @@
 import {
     define,
     div,
+    button,
     TurboElement,
+    TurboProperties,
+    DefaultEventName,
     mod,
     img,
     Reifect,
-    getFileExtension, video, element, signal, turbo, TurboModel, TurboButton, auto, effect
+    getFileExtension, video, element
 } from "turbodombuilder";
 import "./carousel.css";
 
-@define("portfolio-carousel")
+@define()
 export class PortfolioCarousel extends TurboElement {
-    public static defaultProperties = {
-        model: TurboModel
-    };
+    private readonly images: string[];
 
-    @signal public images: string[];
+    private _currentIndex: number;
 
-    @signal @auto({
-        defaultValue: 0,
-        preprocessValue: function (value) {
-            return mod(value, this.images.length);
-        }
-    }) public currentIndex: number;
-
-    private imageContainer: HTMLElement;
-    private previousButton: TurboButton;
-    private nextButton: TurboButton;
-    private dotsContainer: HTMLElement;
+    private imageContainer: HTMLElement | undefined;
+    private imageContainerTransition: Reifect;
 
     private dots: HTMLElement[] = [];
 
-    public initialize() {
-        super.initialize();
-        this.model.generateObserver({onAdded: (data, _self, index: number) => this.createImage(data, index)});
-    }
+    constructor(images: string[], properties?: TurboProperties) {
+        super(properties);
+        this.addClass("portfolio-carousel");
 
-    protected setupUIElements() {
-        super.setupUIElements();
-        this.imageContainer = div({classes: "carousel-image-container"});
-        new Reifect({
-            transitionProperties: "transform",
-            transitionDuration: 0.5,
-            transitionTimingFunction: "ease-in-out",
-        }).apply(this.imageContainer);
-
-        this.previousButton = TurboButton.create<any>({
-            text: "Previous",
-            classes: "carousel-prev",
-            onClick: () => this.currentIndex--
-        });
-        this.nextButton = TurboButton.create<any>({
-            text: "Next",
-            classes: "carousel-next",
-            onClick: () => this.currentIndex++
-        });
-
-        this.dotsContainer = div({classes: "carousel-dots"});
+        this.images = images;
+        this.setupUILayout();
+        this.currentIndex = 0;
     }
 
     protected setupUILayout() {
-        super.setupUILayout();
-        turbo(this).addChild([this.imageContainer, this.previousButton, this.nextButton, this.dotsContainer]);
-    }
+        this.imageContainer = div({classes: "carousel-image-container", parent: this});
+        this.imageContainerTransition = new Reifect({
+            transitionProperties: "transform",
+            transitionDuration: 0.5,
+            transitionTimingFunction: "ease-in-out",
+        });
 
-    @effect private currentIndexChanged() {
-        turbo(this.imageContainer).setStyle("transform", `translateX(${-this.currentIndex * 100}%)`);
-        this.dots.forEach((dot, index) =>
-            turbo(dot).toggleClass("active", index == this.currentIndex));
-    }
+        this.imageContainerTransition.apply(this.imageContainer);
 
-    private createImage(imageUrl: string, index: number) {
-        const extension = getFileExtension(imageUrl);
+        this.images.forEach(imageUrl => this.createImage(imageUrl));
 
-        this.dots.push(div({
+        if (this.images.length < 2) return;
+
+        const prevButton = button({
+            text: "Previous",
+            classes: "carousel-prev",
+            parent: this,
+            listeners: {[DefaultEventName.click]: () => this.currentIndex--}
+        });
+
+        const nextButton = button({
+            text: "Next",
+            classes: "carousel-next",
+            parent: this,
+            listeners: {[DefaultEventName.click]: () => this.currentIndex++}
+        });
+
+        const dotsContainer = div({classes: "carousel-dots", parent: this});
+        this.images.forEach((_, index) => this.dots.push(div({
             classes: `carousel-dot ${index === this.currentIndex ? "active" : ""}`,
-            parent: this.dotsContainer,
-            onclick: () => this.currentIndex = index
-        }));
+            parent: dotsContainer,
+            onclick: {[DefaultEventName.click]: () => this.currentIndex = index}
+        })));
+    }
 
-        if (extension == ".mp4" || extension == ".m4v") return video({
+    protected get currentIndex(): number {
+        return this._currentIndex;
+    }
+
+    protected set currentIndex(index: number) {
+        this._currentIndex = mod(index, this.images.length);
+        this.imageContainer?.setStyle("transform", `translateX(${-this.currentIndex * 100}%)`);
+
+        this.dots.forEach((dot, index) =>
+            dot.toggleClass("active", index == this.currentIndex));
+    }
+
+    private createImage(imageUrl: string) {
+        const extension = getFileExtension(imageUrl);
+        if (extension == ".mp4" || extension == ".m4v") video({
             classes: "carousel-image", controls: true, parent: this.imageContainer, children: [
                 element({tag: "source", type: "video/mp4", src: imageUrl})
             ]
         });
-        return img({classes: "carousel-image", src: imageUrl, parent: this.imageContainer});
+        else img({classes: "carousel-image", src: imageUrl, parent: this.imageContainer});
     }
 }

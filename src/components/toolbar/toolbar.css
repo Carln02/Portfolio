@@ -1,13 +1,11 @@
 portfolio-toolbar {
     position: fixed;
+
     display: flex;
     flex-direction: row;
     gap: var(--toolbar-gap);
 
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-
+    bottom: env(safe-area-inset-bottom, 0);
     margin-bottom: var(--toolbar-bottom-margin);
     padding: var(--toolbar-padding);
     border-radius: var(--card-content-radius);
@@ -16,31 +14,19 @@ portfolio-toolbar {
     background: var(--transparent-gradient-dark);
     backdrop-filter: blur(var(--card-backdrop-blur));
 
-    z-index: 10;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+
+    will-change: transform;
+    z-index: 2;
 }
 
 .toolbar-separator {
     width: var(--toolbar-separator-width);
     margin: var(--toolbar-separator-margin);
     background-color: var(--toolbar-separator-color);
-}
-
-.portfolio-tool {
-    width: var(--tool-icon-size);
-    height: var(--tool-icon-size);
-    padding: var(--tool-icon-padding);
-    transition: var(--tool-hover-transition);
-}
-
-.portfolio-tool.selected {
-    background-color: var(--tool-icon-selected-background-color);
-    border-radius: var(--tool-icon-radius);
-}
-
-.portfolio-tool:hover {
-    transform: scale(var(--tool-icon-selected-scale));
-}
-
-.portfolio-tool svg {
-    fill: var(--tool-icon-color);
 }

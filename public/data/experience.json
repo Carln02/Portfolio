@@ -1,33 +1,19 @@
 [
   {
-    "title": "ex)situ, LISN",
-    "startDate": "2025-10-01",
-    "endDate": "2028-10-01",
-    "location": "Orsay, France",
-    "link": "https://ex-situ.lri.fr/",
-    "linkText": "Website",
-    "tags": ["HCI Theory", "Visual Programming", "Designer-Developer Handoff"],
-    "description": "Pursuing a PhD to explore and enhance the creation process of interactive systems, from both the designer and the developer sides, and strengthen the collaboration between them. My current project is a collaborative frontend development toolkit grounded in HCI theory.",
-    "origin": {
-      "x": -1190,
-      "y": -556
-    }
-  },
-  {
     "images": [
       "assets/images/experience/exsitu.png"
     ],
-    "title": "ex)situ, LISN",
+    "title": "Ex-Situ Research Lab",
     "startDate": "2024-05-01",
     "endDate": "2024-08-01",
     "location": "Orsay, France",
     "link": "https://ex-situ.lri.fr/",
     "linkText": "Website",
     "tags": ["Web Dev", "Prototyping", "Ideation"],
-    "description": "Completed two research internships in the ex)situ research team where I participated in the design and development of a new version of VideoClipper (Mackay et al., 2024), utilizing interaction substrates (Mackay & Beaudouin-Lafon, 2025) to extend the tool’s power of expression. I conducted a user study and interviews.",
+    "description": "Internship where I developed a new interactive and instrumental-driven version of VideoClipper, a tool for video prototyping.",
     "origin": {
-      "x": -2615,
-      "y": -1150
+      "x": -1416,
+      "y": -450
     }
   },
   {
@@ -38,10 +24,10 @@
     "link": "https://cre8mania.com/",
     "linkText": "Website",
     "tags": ["Web Dev", "R&D", "3D", "AR"],
-    "description": "Research internship where I studied different AR modalities and their characteristics, developed image tracking and markerless AR prototypes with various web technologies, and tested them and compared their efficiency and power of expression.",
+    "description": "Research internship where I developed image tracking and markerless web based AR. I also participated in the modeling for two projection mapping animations for Jeddah Festival.",
     "origin": {
-      "x": -4070,
-      "y": -900
+      "x": -2432,
+      "y": -190
     }
   }
 ]

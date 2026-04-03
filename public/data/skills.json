@@ -1,58 +1,50 @@
 [
   {
-    "title": "Research Interests",
-    "tags": ["HCI", "Creativity-Support Tools", "Instrumental Interaction", "Interaction Substrates", "Frontend Development", "Designer-Developer Workflow", "Visual Programming", "Creative collaboration"],
+    "title": "Languages",
+    "tags": ["French", "Arabic", "English"],
     "origin": {
       "x": 800,
       "y": 100
     }
   },
   {
-    "title": "Languages",
-    "tags": ["French", "Arabic", "English"],
-    "origin": {
-      "x": 1740,
-      "y": 480
-    }
-  },
-  {
     "title": "Programming Languages",
-    "tags": ["JavaScript/TypeScript", "C#", "Java", "Dart", "C/C++", "Python", "HTML/CSS", "SQL", "PHP", "Bash"],
+    "tags": ["JavaScript", "C#", "Java", "Dart", "C/C++", "Python", "HTML/CSS", "SQL", "PHP", "Bash"],
     "origin": {
-      "x": 2715,
-      "y": 210
+      "x": 1650,
+      "y": 40
     }
   },
   {
     "title": "Design Tools",
     "tags": ["Figma", "Adobe Creative Suite", "Maya", "Revit", "3DS Max", "Blender", "Toon Boom Harmony"],
     "origin": {
-      "x": 3640,
-      "y": 650
+      "x": 2600,
+      "y": 320
     }
   },
   {
     "title": "Programming Tools",
     "tags": ["Unity", "Flutter", "React", "OpenGL", "THREE.js", "Oracle", "MongoDB"],
     "origin": {
-      "x": 4940,
-      "y": 290
+      "x": 3500,
+      "y": -100
     }
   },
   {
     "title": "Soft Skills",
     "tags": ["Creativity", "Problem Solving", "Attention to Details", "Organization", "Time Management", "Teamwork", "Self-learning"],
     "origin": {
-      "x": 6340,
-      "y": -100
+      "x": 4320,
+      "y": 130
     }
   },
   {
     "title": "Hard Skills",
-    "tags": ["User Interviews", "UX Design Methods", "Web & Mobile Development", "Game Development", "Software Documentation", "Software Design", "3D Modeling & Animation", "Cell Animation", "Motion Design"],
+    "tags": ["UI Design", "Prototyping", "Wireframing", "Ideation", "Web & Mobile Dev", "Game Dev", "Software Design & Documentation", "3D Modeling & Animation", "Cell Animation", "Motion Design"],
     "origin": {
-      "x": 7600,
-      "y": 470
+      "x": 5150,
+      "y": -400
     }
   }
 ]

@@ -1,82 +1,82 @@
-import {
-    Coordinate,
-    define,
-    expose, interactor,
-    Point,
-    Reifect,
-    TurboDragEvent,
-    TurboElement, TurboWheelEvent
-} from "turbodombuilder";
+import {css, define, div, Point, Reifect, TurboElement} from "turbodombuilder";
+import {PortfolioToolbar} from "../toolbar/toolbar";
+import {NavigationManager} from "../../managers/navigationManager/navigationManager";
+import {ToolManager} from "../../managers/toolManager/toolManager";
 import "./canvas.css";
-import {CanvasView} from "./canvas.view";
-import {CanvasModel} from "./canvas.model";
-import {CanvasNavigationInteractor} from "./canvas.navigationInteractor";
 
 /**
  * @description Class representing a canvas on which the user can add cards, connect them, move them around, etc.
  */
-@define("portfolio-canvas")
-export class Canvas extends TurboElement<CanvasView, any, CanvasModel> {
-    @expose("model") public translation: Point;
-    @expose("model") public scale: number;
-    @expose("view") public content: HTMLElement;
+@define()
+export class PortfolioCanvas extends TurboElement {
 
-    public static defaultProperties = {
-        model: CanvasModel,
-        view: CanvasView,
-        interactors: CanvasNavigationInteractor
-    };
+    //Canvas parent --> contains the main components that are translated/scaled
+    public readonly content: HTMLDivElement;
 
     //Canvas's attached navigation manager
-    @interactor() protected navigationInteractor: CanvasNavigationInteractor;
+    public readonly navigationManager: NavigationManager;
 
-    private transition: Reifect;
+    private readonly transition: Reifect;
 
-    public initialize() {
+    //Main toolbar
+    public readonly toolbar: PortfolioToolbar;
+
+    private readonly background: HTMLElement;
+
+    public constructor(navigationManager: NavigationManager, toolManager: ToolManager) {
+        super({parent: document.body});
+        this.navigationManager = navigationManager;
+
+        this.background = div({parent: this, id: "background"});
+
+        this.content = div({parent: this, id: "canvas-content"});
+
         this.transition = new Reifect({
             transitionProperties: "transform",
             transitionDuration: 0.3,
             transitionTimingFunction: "ease-out",
         });
-        super.initialize();
+
+        //Init toolbar
+        this.toolbar = new PortfolioToolbar(toolManager, {parent: this});
+        this.toolbar.populateWithAllTools();
+    }
+
+    public get translation() {
+        return this.navigationManager.translation;
+    }
+
+    public get scale() {
+        return this.navigationManager.scale;
     }
 
     public enableTransition(b: boolean) {
         this.transition.enabled.transition = b;
-        this.transition.apply(this.view.content);
+        this.transition.apply(this.content);
     }
 
     /**
-     * @description Offset a given screen position by the canvas's translation.
-     * @param {Point} screenPosition
+     * @description Translate and scale the canvas by the given values
+     * @param translation
+     * @param scale
      */
-    public scalePosition(screenPosition: Point) {
-        return screenPosition?.sub(this.translation).div(this.scale);
+    public transform(translation: Point, scale: number) {
+        this.content.setStyle("transform", css`translate3d(${translation.x}px, ${translation.y}px, 0) scale3d(${scale}, ${scale}, 1)`);
+        this.updateBackgroundPosition();
     }
 
-    public pan(e: TurboDragEvent | TurboWheelEvent) {
-        this.navigationInteractor.pan(e);
+    private updateBackgroundPosition(parent: HTMLElement = this.background) {
+        const computedPosition = this.translation.object;
+
+        while (computedPosition.x < 0) computedPosition.x += 1920;
+        while (computedPosition.x >= 1920) computedPosition.x -= 1920;
+
+        while (computedPosition.y < 0) computedPosition.y += 1080;
+        while (computedPosition.y >= 1080) computedPosition.y -= 1080;
+
+        parent.setStyle("backgroundPosition", `${computedPosition.x}px ${computedPosition.y}px`, true);
+        parent.setStyle("backgroundImage", this.scale < 0.5 ? "none" : "url(\"assets/misc/dot-bg-pattern.png\")")
+        parent.setStyle("backgroundSize", `${1920 * this.scale * 0.8}px`, true);
     }
 
-    public zoom(e: TurboDragEvent | TurboWheelEvent) {
-        this.navigationInteractor.zoom(e);
-    }
-
-    public navigateTo(element: Element, offset: Coordinate = {x: 0.5, y: 0.5}) {
-        const rect = element.getBoundingClientRect();
-        const deltaPosition = new Point(window.innerWidth * offset.x, window.innerHeight * offset.y)
-            .sub(rect.left + rect.width * offset.x, rect.top + rect.height * offset.y);
-
-        this.model.translate(deltaPosition);
-    }
-
-    public getPositionOf(element: Element, offset: Coordinate = {x: 0, y: 0}): Point {
-        const canvasRect = this.view.content.getBoundingClientRect();
-        const rect = element.getBoundingClientRect();
-
-        const deltaPosition =  new Point(rect.x + rect.width * offset.x, rect.y + rect.height * offset.y)
-            .sub(canvasRect.x * 2, canvasRect.y * 2)
-
-        return this.translation.add(deltaPosition).div(this.scale);
-    }
 }
