@@ -1,9 +1,10 @@
 import {
-    DefaultEventName,
+    ClickMode,
+    InputDevice,
     listener,
     Point,
     turbo,
-    TurboDragEvent, TurboEventName,
+    TurboDragEvent,
     TurboInteractor,
     TurboWheelEvent
 } from "turbodombuilder";
@@ -16,9 +17,11 @@ export class CanvasNavigationInteractor extends TurboInteractor<Canvas, CanvasVi
 
     public accessor target = document;
 
-    @listener() trackpadScroll(e: TurboWheelEvent) {this.pan(e);}
-    @listener() trackpadPinch(e: TurboWheelEvent) {this.zoom(e, true);}
-    @listener() mouseWheel(e: TurboWheelEvent) {this.zoom(e);}
+    @listener() scroll(e: TurboWheelEvent) {this.pan(e);}
+    @listener() pinch(e: TurboWheelEvent) {
+        if (e.inputDevice === InputDevice.touch && e.clickMode === ClickMode.left) return;
+        this.zoom(e, true);
+    }
 
     public pan(e: TurboWheelEvent | TurboDragEvent) {
         this.element.enableTransition(false);

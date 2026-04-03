@@ -3,7 +3,7 @@ import {
     define,
     expose, interactor,
     Point,
-    Reifect,
+    Reifect, turbo,
     TurboDragEvent,
     TurboElement, TurboWheelEvent
 } from "turbodombuilder";
@@ -30,20 +30,21 @@ export class Canvas extends TurboElement<CanvasView, any, CanvasModel> {
     //Canvas's attached navigation manager
     @interactor() protected navigationInteractor: CanvasNavigationInteractor;
 
-    private transition: Reifect;
+    // private transition: Reifect;
 
     public initialize() {
-        this.transition = new Reifect({
-            transitionProperties: "transform",
-            transitionDuration: 0.3,
-            transitionTimingFunction: "ease-out",
-        });
+        // this.transition = new Reifect({
+        //     transitionProperties: "transform",
+        //     transitionDuration: 0.3,
+        //     transitionTimingFunction: "ease-out",
+        // });
         super.initialize();
     }
 
     public enableTransition(b: boolean) {
-        this.transition.enabled.transition = b;
-        this.transition.apply(this.view.content);
+        turbo(this.view.content).setStyle("transition", b ? "transform 0.3s ease-out" : "");
+        // this.transition.enabled.transition = b;
+        // this.transition.apply(this.view.content);
     }
 
     /**
