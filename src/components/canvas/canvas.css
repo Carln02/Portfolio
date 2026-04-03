@@ -4,6 +4,7 @@ portfolio-canvas {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
+    touch-action: none;
 }
 
 portfolio-canvas > #background {
@@ -20,7 +21,7 @@ portfolio-canvas > #background {
 portfolio-canvas > #canvas-content {
     position: absolute;
     overflow: visible;
-    /*touch-action: none; !* To disable default touch actions on iOS and iPadOS *!*/
+    touch-action: none;
 
     /* GPU optimizations */
     -webkit-backface-visibility: hidden;

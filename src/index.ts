@@ -24,9 +24,10 @@ turbo(canvas).showTransition.styles = state => `display: ${state === Shown.hidde
 TurboEventManager.instance.scaleEventPosition = (position: Point) => canvas.scalePosition(position);
 TurboEventManager.instance.preventDefaultWheel = true;
 
-document.addEventListener("wheel", (e) => e.preventDefault(), {passive: false});
-document.addEventListener("gesturestart", (e) => e.preventDefault(), {passive: false});
-document.addEventListener("gesturechange", (e) => e.preventDefault(), {passive: false});
+//
+// document.addEventListener("wheel", (e) => e.preventDefault(), {passive: false});
+// document.addEventListener("gesturestart", (e) => e.preventDefault(), {passive: false});
+// document.addEventListener("gesturechange", (e) => e.preventDefault(), {passive: false});
 
 // const toolbar = Toolbar.create({parent: document.body});
 // toolbar.canvas = canvas;
