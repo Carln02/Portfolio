@@ -32,7 +32,7 @@
     margin-top: var(--card-info-top-margin);
 }
 
-.portfolio-card .card-info turbo-rich-element {
+.portfolio-card .card-info .turbo-rich-element {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -40,15 +40,16 @@
     font-size: var(--card-info-font-size);
 }
 
-.portfolio-card .card-info turbo-rich-element div {
+.portfolio-card .card-info turbo-rich-element > h4 {
     color: var(--card-info-color);
 }
 
-.portfolio-card .card-info turbo-rich-element .icon {
+.portfolio-card .turbo-icon {
     width: var(--card-info-icon-size);
     height: var(--card-info-icon-size);
 }
-.portfolio-card .card-info turbo-rich-element svg {
+.portfolio-card .turbo-icon svg {
+    display: block;
     fill: var(--card-info-color);
 }
 
@@ -66,6 +67,7 @@
 .portfolio-card .card-tags .card-tag {
     padding: 4px 8px;
     border-radius: 50px;
+    border: 0.15em solid black;
 }
 
 /* DESCRIPTION */

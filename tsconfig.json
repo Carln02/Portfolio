@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "target": "ES6",
+    "module": "ESNext",
     "lib": ["ESNext", "dom"],
-    "module": "commonjs",
     "moduleResolution": "node",
     "rootDir": "./src",
     "esModuleInterop": true,
-    "experimentalDecorators": true,
+    "experimentalDecorators": false,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   }

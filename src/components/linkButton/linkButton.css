@@ -1,4 +1,4 @@
-portfolio-link-button {
+.portfolio-link-button {
     display: flex;
     flex-direction: row;
 
@@ -8,7 +8,7 @@ portfolio-link-button {
     padding: var(--button-padding-vertical) var(--button-padding-horizontal);
 }
 
-portfolio-link-button .icon {
+.portfolio-link-button .turbo-icon {
     width: var(--button-icon-size);
     height: var(--button-icon-size);
 
@@ -17,57 +17,57 @@ portfolio-link-button .icon {
     }
 }
 
-portfolio-link-button div {
+.portfolio-link-button h4 {
     flex-grow: 1;
     text-align: center;
     font-weight: 700;
     color: var(--button-text-color);
 }
 
-portfolio-link-button.primary-button {
+.portfolio-link-button.primary-button {
     width: 100%;
 }
 
-portfolio-link-button.secondary-button {
+.portfolio-link-button.secondary-button {
     width: calc(50% - var(--buttons-container-gap) / 2 - var(--button-padding-horizontal) * 2 - var(--button-thin-border-width) * 2);
 }
 
-portfolio-link-button.tertiary-button {
+.portfolio-link-button.tertiary-button {
     width: calc(50% - var(--buttons-container-gap) / 2 - var(--button-padding-horizontal) * 2 - var(--button-thin-border-width) * 2);
 }
 
-portfolio-link-button.primary-button.purple-button, portfolio-link-button.secondary-button.purple-button {
+.portfolio-link-button.primary-button.purple-button, portfolio-link-button.secondary-button.purple-button {
     background: var(--purple-primary-gradient);
     border-color: var(--purple-primary-color);
 }
 
-portfolio-link-button.tertiary-button.purple-button {
+.portfolio-link-button.tertiary-button.purple-button {
     background: var(--purple-secondary-gradient);
     border-color: var(--purple-secondary-color);
 
-    div {
+    h4 {
         color: var(--purple-secondary-light-color);
     }
 
-    .icon svg {
+    .turbo-icon svg {
         fill: var(--purple-secondary-light-color);
     }
 }
 
-portfolio-link-button.primary-button.blue-button, portfolio-link-button.secondary-button.blue-button {
+.portfolio-link-button.primary-button.blue-button, portfolio-link-button.secondary-button.blue-button {
     background: var(--blue-primary-gradient);
     border-color: var(--blue-primary-color);
 }
 
-portfolio-link-button.tertiary-button.blue-button {
+.portfolio-link-button.tertiary-button.blue-button {
     background: var(--blue-secondary-gradient);
     border-color: var(--blue-secondary-color);
 
-    div {
+    h4 {
         color: var(--blue-secondary-light-color);
     }
 
-    .icon svg {
+    .turbo-icon svg {
         fill: var(--blue-secondary-light-color);
     }
 }

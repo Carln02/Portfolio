@@ -1,10 +1,6 @@
-import {PortfolioCardData} from "../../card.types";
+import {CardData} from "../../card.types";
+import {SideH} from "turbodombuilder";
 
-export enum SideH {
-    left = "left",
-    right = "right",
-}
-
-export type PortfolioFlowCardData = PortfolioCardData & {
+export type FlowCardData = CardData & {
     side: SideH;
 };

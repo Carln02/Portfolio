@@ -1,7 +1,7 @@
-import {PortfolioCardData} from "../../card.types";
-import {PortfolioLinkData} from "../../../linkButton/linkButton.types";
+import {CardData} from "../../card.types";
+import {LinkData} from "../../../linkButton/linkButton.types";
 
-export type PortfolioRootCardData = PortfolioCardData & {
+export type RootCardData = CardData & {
     profilePicture?: string,
-    links: PortfolioLinkData[]
+    links: LinkData[]
 };
