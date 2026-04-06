@@ -10,11 +10,12 @@ module.exports = [
             path: path.resolve(__dirname, "public"),
         },
         devServer: {
+            host: "0.0.0.0",
             static: {
                 directory: path.join(__dirname, "public"),
             },
             compress: true,
-            port: 9000,
+            port: 8080,
             open: true,
             hot: true
         },

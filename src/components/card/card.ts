@@ -1,9 +1,11 @@
 import {
-    Coordinate, DefaultEventName,
+    ClickMode,
+    Coordinate,
+    DefaultEventName,
     define,
     Delegate,
     expose,
-    Point,
+    Point, Propagation,
     turbo,
     TurboDragEvent,
     TurboElement
@@ -34,6 +36,11 @@ export class Card<
 
     protected setupUIListeners() {
         super.setupUIListeners();
-        turbo(this).on(DefaultEventName.drag, (e: TurboDragEvent) => this.move(e.scaledDeltaPosition));
+        turbo(this).on(DefaultEventName.drag, (e: TurboDragEvent) => {
+            if (e.clickMode === ClickMode.left) {
+                this.move(e.scaledDeltaPosition);
+                return Propagation.stopImmediatePropagation;
+            }
+        });
     }
 }
